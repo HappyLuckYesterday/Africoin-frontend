@@ -191,7 +191,7 @@ const Header = () => {
               </div>
               <div className="py-6" onClick={() => setMobileMenuOpen(false)}>
                 <Link
-                  to=""
+                  to="/login"
                   className="-mx-3 block rounded-lg px-3 py-2.5 text-[18px] font-poppins leading-7 text-gray-900 hover:bg-gray-50"
                 >
                   Connect Wallet
