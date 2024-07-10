@@ -118,7 +118,7 @@ const Header = () => {
           </div>
         </PopoverGroup>
         <div className="max-[1100px]:hidden flex flex-1 justify-end">
-          <BlueLinkButton text="CONNECT WALLET" link="/" />
+          <BlueLinkButton text="CONNECT WALLET" link="/login" />
         </div>
       </nav>
       <Dialog
