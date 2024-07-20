@@ -18,28 +18,19 @@ const Header = () => {
     return location.pathname === path;
   };
   return (
-    <header className="">
+    <header className="w-full">
       <nav
-        className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8"
+        className="mx-auto flex max-w-8xl items-center justify-between p-6 lg:px-8"
         aria-label="Global"
       >
-        <div className="flex lg:flex-1">
+        <div className="flex flex-row">
+        <div className="flex lg:flex-1 mr-10">
           <a href="/" className="-m-1.5 p-1.5">
             <span className="sr-only">Your Company</span>
-            <img className="h-20 w-auto" src={Logo} alt="" />
+            <img className="mt-3 h-20 w-auto" src={Logo} alt="" />
           </a>
         </div>
-        <div className="flex min-[1100px]:hidden">
-          <button
-            type="button"
-            className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
-            onClick={() => setMobileMenuOpen(true)}
-          >
-            <span className="sr-only">Open main menu</span>
-            <Bars3Icon className="h-6 w-6" aria-hidden="true" />
-          </button>
-        </div>
-        <PopoverGroup className="max-[1100px]:hidden flex gap-x-12 translate-y-[-10px]">
+        <PopoverGroup className="max-[1220px]:hidden flex gap-x-6 translate-y-[8px]">
           <div className="flex flex-col items-center">
             <img
               src={LeafCap}
@@ -117,8 +108,53 @@ const Header = () => {
             </Link>
           </div>
         </PopoverGroup>
-        <div className="max-[1100px]:hidden flex flex-1 justify-end">
+        </div>
+        <div className="max-[1220px]:hidden flex flex-1 justify-end">
+        <PopoverGroup className="max-[1220px]:hidden flex gap-x-6 translate-y-[-8px] mr-10">
+          <div className="flex flex-col items-center">
+            <img
+              src={LeafCap}
+              alt="leafCap"
+              className={`opacity-0 ${isCurrentPage("/login") && "opacity-100"
+                }`}
+            />
+            <Link
+              to="/login"
+              className={`${isCurrentPage("/login") ? "text-green-500" : "text-black"
+                } text-[18px] font-bold font-poppins transition ease-in-out hover:bg-gray-200 rounded-md px-2 py-1`}
+            >
+              {" "}
+              Login
+            </Link>
+          </div>
+          <div className="flex flex-col items-center">
+            <img
+              src={LeafCap}
+              alt="leafCap"
+              className={`opacity-0 ${isCurrentPage("/register") && "opacity-100"
+                }`}
+            />
+            <Link
+              to="/register"
+              className={`${isCurrentPage("/register") ? "text-green-500" : "text-black"
+                } text-[18px] font-bold font-poppins transition ease-in-out hover:bg-gray-200 rounded-md px-2 py-1`}
+            >
+              {" "}
+              Signup
+            </Link>
+          </div>
+          </PopoverGroup>
           <BlueLinkButton text="CONNECT WALLET" link="/login" />
+        </div>
+        <div className="flex min-[1220px]:hidden mt-3">
+          <button
+            type="button"
+            className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
+            onClick={() => setMobileMenuOpen(true)}
+          >
+            <span className="sr-only">Open main menu</span>
+            <Bars3Icon className="h-6 w-6" aria-hidden="true" />
+          </button>
         </div>
       </nav>
       <Dialog
