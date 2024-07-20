@@ -28,8 +28,8 @@ const HomePage: React.FC = () => {
   return (
     <div className="relative">
       <div className="container">
-        <div className="mt-36">
-          <p className="text-[32px] sm:text-[48px] md:text-[56px] lg:text-[64px] xl:text-[72px] font-poppins">
+        <div className="mt-8 sm:mt-16 md:mt-24 lg:mt-28 xl:mt-32">
+          <p className="text-[24px] sm:text-[48px] md:text-[56px] lg:text-[64px] xl:text-[72px] font-poppins">
             Transforming Carbon Credits in Africa
           </p>
           <img
@@ -41,50 +41,50 @@ const HomePage: React.FC = () => {
             Join Africoin in Mitigating Climate Change with Blockchain
             Technology
           </p>
-          <div className="my-20">
+          <div className="my-8 xl:my-20">
             <BlueLinkButton2 text="EXPLORE WALLET" link="/" />
           </div>
         </div>
       </div>
       <div className="container relative h-full">
         <img src={GreenWorld} alt="Green World" className=" top-0 mx-auto" />
-        <p className=" bottom-0 text-[20px] sm:text-[28px] md:text-[32px] font-poppins text-center px-[10%]">
+        <p className=" bottom-0 text-[16px] sm:text-[28px] md:text-[32px] font-poppins text-center px-[10%]">
           By simplifying green purchases with state-of-the-art assets
           tokenization, Africoin is set to stand as the definitive eco-conscious
           choice in the market, aiming to be the gold standard for sustainable
           transactions globally.
         </p>
       </div>
-      <div className="container h-full mt-20">
-        <p className="text-center text-[26px] sm:text-[48px] md:text-[56px] lg:text-[64px] xl:text-[72px] font-poppins leading-none">
+      <div className="container h-full mt-16 xl:mt-20">
+        <p className="text-center text-[32px] sm:text-[48px] md:text-[56px] lg:text-[64px] xl:text-[72px] font-poppins leading-none">
           Unlocking freedom with
         </p>
-        <p className="text-center text-[26px] sm:text-[48px] md:text-[56px] lg:text-[64px] xl:text-[72px] font-poppins leading-none text-[#2A9646]">
+        <p className="text-center text-[32px] sm:text-[48px] md:text-[56px] lg:text-[64px] xl:text-[72px] font-poppins leading-none text-[#2A9646]">
           Decentralized Africoin
         </p>
         <div className="flex justify-around flex-wrap mt-10">
-          <div className="h-[600px] w-[400px] bg-white rounded-[50px] p-10 mb-5 mx-1 flex flex-col justify-between items-center">
+          <div className="h-[550px] lg:h-[600px] w-[300px] bg-white rounded-[50px] p-10 mb-5 sm:mx-1 flex flex-col justify-between items-center">
             <img src={Pic1} alt="pic 1" className="mx-auto my-5" />
-            <p className="text-[45px] font-poppins">0 gas emission</p>
-            <p className="text-[25px] font-poppins">
+            <p className="text-[36px] lg:text-[45px] font-poppins">0 gas emission</p>
+            <p className="text-[20px] lg:text-[25px] font-poppins">
               We propose a low energy consuming Blockchain fully supported
               by zero carbon miners
             </p>
           </div>
-          <div className="h-[600px] w-[400px] bg-white rounded-[50px] p-10 mb-5 mx-1 flex flex-col justify-between items-center">
+          <div className="h-[550px] lg:h-[600px] w-[300px] bg-white rounded-[50px] p-10 mb-5 mx-1 flex flex-col justify-between items-center">
             <img src={Pic2} alt="pic 1" className="mx-auto my-5" />
-            <p className="text-[45px] font-poppins">Sustainability</p>
-            <p className="text-[25px] font-poppins">
+            <p className="text-[36px] lg:text-[45px] font-poppins">Sustainability</p>
+            <p className="text-[20px] lg:text-[25px] font-poppins">
               The main purpose for Greenercoin is to become the currency that is
               usable for the sustainable market
             </p>
           </div>
-          <div className="h-[600px] w-[400px] bg-white rounded-[50px] p-10 mb-5 mx-1 flex flex-col justify-between items-center">
+          <div className="h-[550px] lg:h-[600px] w-[300px] bg-white rounded-[50px] p-10 mb-5 sm:mx-1 flex flex-col justify-between items-center">
             <img src={Pic3} alt="pic 1" className="mx-auto my-5" />
-            <p className="text-[45px] font-poppins">
+            <p className="text-[36px] lg:text-[45px] font-poppins">
               Decentralized Application
             </p>
-            <p className="text-[25px] font-poppins">
+            <p className="text-[20px] lg:text-[25px] font-poppins">
               These Dapps with an NFT Marketplace and a DEX will be used to
               empowers the Blockchain ecosystem.
             </p>
@@ -92,7 +92,7 @@ const HomePage: React.FC = () => {
         </div>
       </div>
       <div className="relative mt-20">
-        <img src={Background1} alt="Background 1" className="w-full absolute" />
+        <img src={Background1} alt="Background 1" className="min-h-[160px] w-full absolute" />
         <div className="flex flex-col py-[12%] items-center h-full relative">
           <p className="text-[20px] sm:text-[32px] md:text-[36px] lg:text-[48px] xl:text-[56px] font-poppins text-white sm:mb-10 mb-5 leading-none">
             The first certified Africoin Blockchain
@@ -105,10 +105,9 @@ const HomePage: React.FC = () => {
           Who benifits from <b className="text-green-500">Africoin</b>
         </p>
         <div className="flex justify-around flex-wrap mt-[120px]">
-          <div className="relative h-[600px] w-[400px] bg-[#13172B] roundec-[30px] p-10 rounded-[50px] mb-20 mx-1">
-            ;
+          <div className="relative h-[600px] w-[320px] lg:w-[400px] bg-[#13172B] roundec-[30px] p-10 rounded-[50px] mb-20 mx-1">
             <img src={Govern} alt="111" className="translate-y-[-60%]" />
-            <div className="absolute top-[30%] left-0 p-10">
+            <div className="absolute w-[300px] top-[30%] left-0 p-5 lg:p-10">
               <p className="text-[35px] font-poppins text-white leading-none mb-5 mx-1">
                 Governments
               </p>
@@ -137,18 +136,17 @@ const HomePage: React.FC = () => {
             <img src={House2} alt="111" className="translate-y-[-60%]" />
             <div className="absolute top-[30%] left-0 p-10">
               <p className="text-[35px] font-poppins text-white leading-none mb-5 mx-1">
-                Carbon Credit Standard Institutes (CCSIs)
+                Carbon Credit Standard Institutes
               </p>
               <p className="text-[20px] font-poppins text-white">
                 Africoin enables CCSIs to significantly enhance their ability to
-                ensure the integrity and transparency of the carbon credit
-                market.
+                ensure the integrity and transparency
               </p>
             </div>
           </div>
         </div>
       </div>
-      <div className="relative container mt-20 flex justify-around flex-wrap">
+      <div className="relative container lg:mt-10 lg:mt-20 flex justify-around flex-wrap">
         <div className="relative p-10 flex flex-col justify-between items-left">
           <p className="text-left text-[45px] md:text-[64px] xl:text-[72px] font-poppins">
             Roadmap
@@ -185,7 +183,7 @@ const HomePage: React.FC = () => {
           />
         </div>
       </div>
-      <div className="container h-full mt-40">
+      <div className="container h-full mt-20 lg:mt-40">
         <p className="text-left text-[32px] sm:text-[48px] md:text-[56px] lg:text-[64px] xl:text-[72px] font-poppins leading-none">
           Blog&News
         </p>
@@ -211,8 +209,8 @@ const HomePage: React.FC = () => {
           />
         </div>
       </div>
-      <div className="relative container mt-60">
-        <div className="border-solid border-2 rounded-[50px] p-20">
+      <div className="relative container mt-40 lg:mt-60">
+        <div className="border-solid border-2 rounded-[50px] p-10 lg:p-20">
           <p className="text-[45px] md:text-[64px] xl:text-[72px] leading-none mb-5">
             Let's start minting!
           </p>
@@ -252,21 +250,21 @@ const HomePage: React.FC = () => {
           We are experts of our skills and that's why we are different.
         </p>
         <div className="flex justify-around flex-wrap mt-10">
-          <div className="relative h-[600px] w-[400px] flex flex-col justify-between text-center items-center">
+          <div className="relative h-[450px] lg:h-[600px] w-[400px] flex flex-col justify-between text-center items-center rounded-[50px]">
             <img src={Man1} alt="Back 1" className="h-full w-[500px] my-5" />
             <div className="absolute bottom-0 text-[36px] font-poppins text-white leading-tight p-5">
               <p>Steps Jobs</p>
               <p>Artist</p>
             </div>
           </div>
-          <div className="relative h-[600px] w-[400px] flex flex-col justify-between items-center">
+          <div className="relative h-[450px] lg:h-[600px] w-[400px] flex flex-col justify-between items-center">
             <img src={Man2} alt="Man2" className="h-full w-[500px] my-5" />
             <div className="absolute bottom-0 text-[36px] font-poppins text-white leading-tight p-5">
               <p>Martin Gupta</p>
               <p>CFO</p>
             </div>
           </div>
-          <div className="relative h-[600px] w-[400px] flex flex-col justify-between items-center">
+          <div className="relative h-[450px] lg:h-[600px] w-[400px] flex flex-col justify-between items-center">
             <img src={Man3} alt="Back 1" className="h-full w-[500px] my-5" />
             <div className="absolute bottom-0 text-[36px] font-poppins text-white leading-tight p-5">
               <p>Garry Lorrd</p>
@@ -278,10 +276,10 @@ const HomePage: React.FC = () => {
       <div className="mt-20 w-full relative">
         <div className="flex justify-between flex-wrap mt-10 w-auto">
           <div className="ml-[5%] h-[800px] lg:h-[800px] xl:h-[1000px] p-10 items-left sm:w-[90%] md:w-[90%] lg:w-[70%] xl:w-[55%] overflow-y-scroll">
-            <p className="text-left text-[45px] md:text-[64px] xl:text-[72px] font-poppins leading-none">
+            <p className="text-left text-[32px] lg:text-[45px] md:text-[64px] xl:text-[72px] font-poppins leading-none">
               Your questions
             </p>
-            <p className="text-left text-[45px] md:text-[64px] xl:text-[72px] font-poppins leading-none text-[#2A9646]">
+            <p className="text-left text-[32px] lg:text-[45px] md:text-[64px] xl:text-[72px] font-poppins leading-none text-[#2A9646]">
               answered!
             </p>
             <div className="">
@@ -295,7 +293,7 @@ const HomePage: React.FC = () => {
           />
         </div>
       </div>
-      <div className="mt-[200px] container relative">
+      <div className="mt-[100px] lg:mt-[200px] container relative">
         <ContactForm />
       </div>
     </div>
