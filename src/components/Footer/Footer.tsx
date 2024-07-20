@@ -89,7 +89,7 @@ const Footer = () => {
         </div>
       </div>
       <div
-        className={`flex justify-between flex-wrap mb-8 items-center text-center ${
+        className={`flex justify-center flex-wrap mb-8 items-center text-center ${
           location.pathname === "/swap" && "mt-10"
         }`}
       >

@@ -9,7 +9,7 @@ interface BlogCardProps {
 
 const BlogCard: React.FC<BlogCardProps> = ({ image, title, content }) => {
   return (
-    <div className="relative h-[600px] w-[400px] rounded-[30px] mb-5 cursor-pointer hover:shadow-[0px_0px_20px_gray]">
+    <div className="relative h-[600px] w-[400px] rounded-[30px] mb-10 cursor-pointer hover:shadow-[0px_0px_20px_gray]">
       <img src={image} alt="back" className="w-full h-full" />
       <div
         style={{

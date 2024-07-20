@@ -63,28 +63,28 @@ const HomePage: React.FC = () => {
           Decentralized Africoin
         </p>
         <div className="flex justify-around flex-wrap mt-10">
-          <div className="h-[550px] lg:h-[600px] w-[300px] bg-white rounded-[50px] p-10 mb-5 sm:mx-1 flex flex-col justify-between items-center">
+          <div className="h-[550px] lg:h-[600px] min-w-[300px] max-w-[400px] bg-white rounded-[50px] p-10 mb-5 sm:mx-1 flex flex-col justify-between sm:justify-start items-center">
             <img src={Pic1} alt="pic 1" className="mx-auto my-5" />
-            <p className="text-[36px] lg:text-[45px] font-poppins">0 gas emission</p>
-            <p className="text-[20px] lg:text-[25px] font-poppins">
+            <p className="text-[36px] lg:text-[45px] font-poppins mt-10">0 gas emission</p>
+            <p className="text-[20px] lg:text-[25px] font-poppins mt-10">
               We propose a low energy consuming Blockchain fully supported
               by zero carbon miners
             </p>
           </div>
-          <div className="h-[550px] lg:h-[600px] w-[300px] bg-white rounded-[50px] p-10 mb-5 mx-1 flex flex-col justify-between items-center">
+          <div className="h-[550px] lg:h-[600px] min-w-[300px] max-w-[400px] bg-white rounded-[50px] p-10 mb-5 mx-1 flex flex-col justify-between sm:justify-start items-center">
             <img src={Pic2} alt="pic 1" className="mx-auto my-5" />
-            <p className="text-[36px] lg:text-[45px] font-poppins">Sustainability</p>
-            <p className="text-[20px] lg:text-[25px] font-poppins">
+            <p className="text-[36px] lg:text-[45px] font-poppins mt-10">Sustainability</p>
+            <p className="text-[20px] lg:text-[25px] font-poppins mt-10">
               The main purpose for Greenercoin is to become the currency that is
               usable for the sustainable market
             </p>
           </div>
-          <div className="h-[550px] lg:h-[600px] w-[300px] bg-white rounded-[50px] p-10 mb-5 sm:mx-1 flex flex-col justify-between items-center">
+          <div className="h-[550px] lg:h-[600px] min-w-[300px] max-w-[400px] bg-white rounded-[50px] p-10 mb-5 sm:mx-1 flex flex-col justify-between sm:justify-start items-center">
             <img src={Pic3} alt="pic 1" className="mx-auto my-5" />
-            <p className="text-[36px] lg:text-[45px] font-poppins">
+            <p className="text-[36px] lg:text-[45px] font-poppins mt-10">
               Decentralized Application
             </p>
-            <p className="text-[20px] lg:text-[25px] font-poppins">
+            <p className="text-[20px] lg:text-[25px] font-poppins mt-10">
               These Dapps with an NFT Marketplace and a DEX will be used to
               empowers the Blockchain ecosystem.
             </p>
@@ -105,9 +105,9 @@ const HomePage: React.FC = () => {
           Who benifits from <b className="text-green-500">Africoin</b>
         </p>
         <div className="flex justify-around flex-wrap mt-[120px]">
-          <div className="relative h-[600px] w-[320px] lg:w-[400px] bg-[#13172B] roundec-[30px] p-10 rounded-[50px] mb-20 mx-1">
+          <div className="relative h-[600px] min-w-[300px] max-w-[400px] lg:w-[400px] bg-[#13172B] roundec-[30px] p-10 rounded-[50px] mb-20 mx-1">
             <img src={Govern} alt="111" className="translate-y-[-60%]" />
-            <div className="absolute w-[300px] top-[30%] left-0 p-5 lg:p-10">
+            <div className="absolute min-w-[300px] top-[30%] left-0 p-5 lg:p-10">
               <p className="text-[35px] font-poppins text-white leading-none mb-5 mx-1">
                 Governments
               </p>
@@ -119,7 +119,6 @@ const HomePage: React.FC = () => {
             </div>
           </div>
           <div className="relative h-[600px] w-[400px] bg-[#2A9646] roundec-[30px] p-10 rounded-[50px] mb-20 mx-1">
-            ;
             <img src={House} alt="111" className="translate-y-[-60%]" />
             <div className="absolute top-[30%] left-0 p-10">
               <p className="text-[35px] font-poppins text-white leading-none mb-5 mx-1">
@@ -132,7 +131,6 @@ const HomePage: React.FC = () => {
             </div>
           </div>
           <div className="relative h-[600px] w-[400px] bg-[#13172B] roundec-[30px] p-10 rounded-[50px] mb-20 mx-1">
-            ;
             <img src={House2} alt="111" className="translate-y-[-60%]" />
             <div className="absolute top-[30%] left-0 p-10">
               <p className="text-[35px] font-poppins text-white leading-none mb-5 mx-1">
@@ -185,7 +183,7 @@ const HomePage: React.FC = () => {
       </div>
       <div className="container h-full mt-20 lg:mt-40">
         <p className="text-left text-[32px] sm:text-[48px] md:text-[56px] lg:text-[64px] xl:text-[72px] font-poppins leading-none">
-          Blog&News
+          Blog & <b className=" text-[#2A9646]">News</b>
         </p>
         <div className="flex justify-around flex-wrap mt-10">
           <BlogCard
@@ -209,9 +207,9 @@ const HomePage: React.FC = () => {
           />
         </div>
       </div>
-      <div className="relative container mt-40 lg:mt-60">
+      <div className="relative container mt-20 lg:mt-60">
         <div className="border-solid border-2 rounded-[50px] p-10 lg:p-20">
-          <p className="text-[45px] md:text-[64px] xl:text-[72px] leading-none mb-5">
+          <p className="text-[45px] md:text-[56px] lg:text-[64px] xl:text-[72px] leading-none mb-5">
             Let's start minting!
           </p>
           <p className="text-[18px] md:text-[22px] xl:text-[25px] mb-10">
@@ -224,22 +222,22 @@ const HomePage: React.FC = () => {
         <img
           src={Coin4}
           alt="coin"
-          className="absolute left-[-10%] top-[60%] w-[20%] md:w-auto md:left-[-50px]"
+          className="absolute left-[-10%] top-[60%] w-[20%] hidden sm:shown md:w-auto md:left-[-50px]"
         />
         <img
           src={Coin5}
           alt="coin"
-          className="absolute right-[-9%] top-[60%] w-[18%] md:w-auto md:right-[-50px]"
+          className="absolute right-[-9%] top-[60%] w-[18%] hidden sm:shown md:w-auto md:right-[-50px]"
         />
         <img
           src={Coin6}
           alt="coin"
-          className="absolute right-[20%] top-[-9%] w-[22%] md:w-auto sm:top-[-70px]"
+          className="absolute right-[20%] top-[-9%] w-[22%] hidden sm:shown md:w-auto sm:top-[-70px]"
         />
         <img
           src={Coin7}
           alt="coin"
-          className="absolute left-[5%] top-[-9%] w-[22%] md:w-auto md:left-[50px] sm:top-[-70px]"
+          className="absolute left-[5%] top-[-9%] w-[22%] hidden sm:shown md:w-auto md:left-[50px] sm:top-[-70px]"
         />
       </div>
       <div className="container mt-20">
@@ -250,14 +248,14 @@ const HomePage: React.FC = () => {
           We are experts of our skills and that's why we are different.
         </p>
         <div className="flex justify-around flex-wrap mt-10">
-          <div className="relative h-[450px] lg:h-[600px] w-[400px] flex flex-col justify-between text-center items-center rounded-[50px]">
+          <div className="relative h-[450px] lg:h-[600px] w-[400px] flex flex-col justify-between items-center">
             <img src={Man1} alt="Back 1" className="h-full w-[500px] my-5" />
             <div className="absolute bottom-0 text-[36px] font-poppins text-white leading-tight p-5">
               <p>Steps Jobs</p>
               <p>Artist</p>
             </div>
           </div>
-          <div className="relative h-[450px] lg:h-[600px] w-[400px] flex flex-col justify-between items-center">
+          <div className="relative h-[450px] lg:h-[600px] w-[400px] flex flex-col justify-between items-center mt-10 md:mt-0">
             <img src={Man2} alt="Man2" className="h-full w-[500px] my-5" />
             <div className="absolute bottom-0 text-[36px] font-poppins text-white leading-tight p-5">
               <p>Martin Gupta</p>
