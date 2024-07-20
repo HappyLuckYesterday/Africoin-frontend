@@ -70,7 +70,7 @@ const Footer = () => {
           </Link>
         </div>
         <div
-          className={`flex justify-center mx-auto mb-5 ${
+          className={`flex justify-center mx-auto mb-5 mt-5  ${
             location.pathname === "/swap" && "absolute right-40"
           }`}
         >
@@ -93,10 +93,10 @@ const Footer = () => {
           location.pathname === "/swap" && "mt-10"
         }`}
       >
-        <p className="text-[16px] text-[#868686] font-poppins">
+        <p className="mt-5 text-[16px] text-[#868686] font-poppins">
           Copyright@2024 Africoin All Rights Reserved
         </p>
-        <p className="text-[16px] text-[#868686] font-poppins flex">
+        <p className="mt-5 text-[16px] text-[#868686] font-poppins flex">
           <p className="mx-6">Privacy Policy</p>
           <p className="mx-6">Terms of Use</p>
         </p>
