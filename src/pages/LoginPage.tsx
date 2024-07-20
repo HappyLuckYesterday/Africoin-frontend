@@ -58,16 +58,15 @@ const LoginPage = () => {
     return (
         <div className="p-10 flex flex-col items-center">
             <h1 className="font-poppins text-[32px] sm:text-[48px] md:text-[56px] lg:text-[64px] xl:text-[72px] text-left">
-                Welcome to Africoin
+                Welcome to <b className="text-green-500">Africoin</b>
             </h1>
             <p className="font-poppins text-[18px] md:text-[22px] xl:text-[25px] text-left">
                 Login to your account.
             </p>
-
             <form
                 onSubmit={handleSubmit}
                 noValidate
-                className="w-1/3 max-w-3xl min-w-[500px] pt-6 bg-gray-200 rounded-3xl"
+                className="w-1/3 max-w-3xl min-w-[350px] pt-6 bg-gray-200 rounded-3xl"
             >
                 <div className="pb-5 mx-5">
                     <label

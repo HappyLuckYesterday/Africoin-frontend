@@ -19,7 +19,7 @@ const Footer = () => {
           </Link>
         </div>
         <div
-          className={`flex gap-x-12 mx-auto mb-5 ${
+          className={`flex gap-x-3 sm:gap-x-12 mx-auto lg:mr-0 mb-5 ${
             location.pathname === "/swap" && "hidden"
           }`}
         >
@@ -27,7 +27,7 @@ const Footer = () => {
             to="/"
             className={`${
               isCurrentPage("/") ? "text-green-500" : "text-black"
-            } text-[18px] font-bold font-poppins`}
+            } text-[18px] font-bold font-poppins block`}
           >
             {" "}
             Home
@@ -36,7 +36,7 @@ const Footer = () => {
             to="/swap"
             className={`${
               isCurrentPage("/swap") ? "text-green-500" : "text-black"
-            } text-[18px] font-bold font-poppins`}
+            } text-[18px] font-bold font-poppins block`}
           >
             {" "}
             Swap
@@ -45,7 +45,7 @@ const Footer = () => {
             to="/blog"
             className={`${
               isCurrentPage("/blog") ? "text-green-500" : "text-black"
-            } text-[18px] font-bold font-poppins`}
+            } text-[18px] font-bold font-poppins block`}
           >
             {" "}
             Blog
@@ -54,7 +54,7 @@ const Footer = () => {
             to="/faq"
             className={`${
               isCurrentPage("/faq") ? "text-green-500" : "text-black"
-            } text-[18px] font-bold font-poppins`}
+            } text-[18px] font-bold font-poppins block`}
           >
             {" "}
             FAQ
@@ -63,13 +63,14 @@ const Footer = () => {
             to="/contact"
             className={`${
               isCurrentPage("/contact") ? "text-green-500" : "text-black"
-            } text-[18px] font-bold font-poppins`}
+            } text-[18px] font-bold font-poppins block`}
           >
             {" "}
             Contact
           </Link>
-        </div>
-        <div
+        </div>  
+      </div>
+      <div
           className={`flex justify-center mx-auto mb-5 mt-5  ${
             location.pathname === "/swap" && "absolute right-40"
           }`}
@@ -87,7 +88,6 @@ const Footer = () => {
             <img src={IconLinkedin} alt="Linkedin" />
           </Link>
         </div>
-      </div>
       <div
         className={`flex justify-center flex-wrap mb-8 items-center text-center ${
           location.pathname === "/swap" && "mt-10"

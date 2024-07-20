@@ -117,7 +117,7 @@ const SwapPage: React.FC = () => {
   };
 
   return (
-    <div className="flex justify-center h-screen">
+    <div className="flex justify-center mb-20">
       <div className="w-[470px]">
         <h1 className="text-[65px] font-bold mb-8">Swap</h1>
         <div className="rounded-[20px] p-1 bg-white shadow-lg relative">
