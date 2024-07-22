@@ -163,7 +163,7 @@ const Header = () => {
         onClose={setMobileMenuOpen}
       >
         <div className="fixed inset-0 z-10" />
-        <DialogPanel className="fixed inset-y-0 right-0 z-10  overflow-y-auto bg-white py-6 w-full sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+        <DialogPanel className="fixed inset-y-0 right-0 z-10  overflow-y-auto bg-white py-6 w-[260px] sm:ring-1 sm:ring-gray-900/10">
           <div className="flex items-center justify-between">
             <a href="#" className="-m-1.5 p-1.5 ml-6">
               <span className="sr-only">Your Company</span>
@@ -181,45 +181,69 @@ const Header = () => {
           <div className="mt-6 flow-root">
             <div className="-my-6 divide-y divide-gray-500/10">
               <div
-                className="space-y-2 py-6"
+                className="py-6"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 <Link
                   to="/home"
-                  className={`${isCurrentPage("/home") ? "text-green-500" : "text-black"
-                    } text-[18px] font-poppins block -mx-3 py-2 pl-10 hover:bg-gray-50 `}
+                  className={`${isCurrentPage("/home") ? " text-green-500" : "text-black "}
+                    text-[18px] font-poppins block -mx-3 py-2 pl-10
+                    rounded-md 
+                    hover:bg-green-600 hover:text-white
+                    transition-colors duration-200
+                    border-b-2
+                     `}
                 >
                   {" "}
                   Home
                 </Link>
                 <Link
                   to="/swap"
-                  className={`${isCurrentPage("/swap") ? "text-green-500" : "text-black"
-                    } text-[18px] font-poppins block -mx-3 py-2 pl-10 hover:bg-gray-50 `}
+                  className={`
+                    ${isCurrentPage("/swap") ? " text-green-500" : "text-black "}
+                    text-[18px] font-poppins block -mx-3 py-2 pl-10
+                    rounded-md 
+                    hover:bg-green-600 hover:text-white
+                    transition-colors duration-200
+                    border-b-2
+                  `}
                 >
-                  {" "}
                   Swap
                 </Link>
                 <Link
                   to="/blog"
-                  className={`${isCurrentPage("/blog") ? "text-green-500" : "text-black"
-                    } text-[18px] font-poppins block -mx-3 py-2 pl-10 hover:bg-gray-50 `}
+                  className={`${isCurrentPage("/blog") ? " text-green-500" : "text-black "}
+                    text-[18px] font-poppins block -mx-3 py-2 pl-10
+                    rounded-md 
+                    hover:bg-green-600 hover:text-white
+                    transition-colors duration-200
+                    border-b-2
+                     `}
                 >
                   {" "}
                   Blog
                 </Link>
                 <Link
                   to="/faq"
-                  className={`${isCurrentPage("/faq") ? "text-green-500" : "text-black"
-                    } text-[18px] font-poppins block -mx-3 py-2 pl-10 hover:bg-gray-50 `}
+                  className={`${isCurrentPage("/faq") ? " text-green-500" : "text-black "}
+                    text-[18px] font-poppins block -mx-3 py-2 pl-10
+                    rounded-md 
+                    hover:bg-green-600 hover:text-white
+                    transition-colors duration-200
+                    border-b-2
+                     `}
                 >
                   {" "}
                   FAQ
                 </Link>
                 <Link
                   to="/contact"
-                  className={`${isCurrentPage("/contact") ? "text-green-500" : "text-black"
-                    } text-[18px] font-poppins block -mx-3 py-2 pl-10 hover:bg-gray-50 `}
+                  className={`${isCurrentPage("/contact") ? "text-green-500" : "text-black "}
+                    text-[18px] font-poppins block -mx-3 py-2 pl-10
+                    rounded-md 
+                    hover:bg-green-600 hover:text-white
+                    transition-colors duration-200
+                     `}
                 >
                   {" "}
                   Contact
@@ -228,7 +252,10 @@ const Header = () => {
               <div className="py-6" onClick={() => setMobileMenuOpen(false)}>
                 <Link
                   to="/login"
-                  className="-mx-3 block rounded-lg py-2.5 text-[18px] font-poppins leading-7 text-gray-900 pl-10 hover:bg-gray-50"
+                  className="text-[18px] font-poppins block -mx-3 py-2 pl-10
+                    rounded-md 
+                    hover:bg-green-600 hover:text-white
+                    transition-colors duration-200"
                 >
                   Connect Wallet
                 </Link>
