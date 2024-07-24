@@ -71,8 +71,8 @@ const Footer = () => {
         </div>  
       </div>
       <div
-          className={`flex justify-center mx-auto mb-5 mt-5  ${
-            location.pathname === "/swap" && "absolute right-40"
+          className={`flex justify-center mx-auto mb-5 mt-5 ${
+            location.pathname === "/swap" && "mx-auto mt-0"
           }`}
         >
           <Link to="" className="mx-2">
@@ -90,7 +90,7 @@ const Footer = () => {
         </div>
       <div
         className={`flex justify-center flex-wrap mb-8 items-center text-center ${
-          location.pathname === "/swap" && "mt-10"
+          location.pathname === "/swap" && "mt-5"
         }`}
       >
         <p className="mt-5 text-[16px] text-[#868686] font-poppins">
