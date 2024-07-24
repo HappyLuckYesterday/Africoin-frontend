@@ -91,7 +91,7 @@ const HomePage: React.FC = () => {
           </div>
         </div>
       </div>
-      <div className="relative mt-20">
+      {/* <div className="relative mt-20">
         <img src={Background1} alt="Background 1" className="min-h-[160px] w-full absolute" />
         <div className="flex flex-col py-[12%] items-center h-full relative">
           <p className="text-[20px] sm:text-[32px] md:text-[36px] lg:text-[48px] xl:text-[56px] font-poppins text-white sm:mb-10 mb-5 leading-none">
@@ -99,7 +99,7 @@ const HomePage: React.FC = () => {
           </p>
           <BlueLinkButton2 text="EXPLORE WALLET" link="/" />
         </div>
-      </div>
+      </div> */}
       <div className="container mt-20">
         <p className="text-left text-[32px] sm:text-[48px] md:text-[56px] lg:text-[64px] xl:text-[72px] font-poppins">
           Who benifits from <b className="text-green-500">Africoin</b>
