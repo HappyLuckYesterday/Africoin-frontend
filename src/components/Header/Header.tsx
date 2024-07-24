@@ -190,7 +190,7 @@ const Header = () => {
                     text-[18px] font-poppins block -mx-3 py-2 pl-10
                     rounded-md 
                     hover:bg-green-600 hover:text-white
-                    transition-colors duration-200
+                    transition-colors md:duration-200
                     border-b-2
                      `}
                 >
@@ -204,7 +204,7 @@ const Header = () => {
                     text-[18px] font-poppins block -mx-3 py-2 pl-10
                     rounded-md 
                     hover:bg-green-600 hover:text-white
-                    transition-colors duration-200
+                    transition-colors md:duration-200
                     border-b-2
                   `}
                 >
@@ -216,7 +216,7 @@ const Header = () => {
                     text-[18px] font-poppins block -mx-3 py-2 pl-10
                     rounded-md 
                     hover:bg-green-600 hover:text-white
-                    transition-colors duration-200
+                    transition-colors md:duration-200
                     border-b-2
                      `}
                 >
@@ -229,7 +229,7 @@ const Header = () => {
                     text-[18px] font-poppins block -mx-3 py-2 pl-10
                     rounded-md 
                     hover:bg-green-600 hover:text-white
-                    transition-colors duration-200
+                    transition-colors md:duration-200
                     border-b-2
                      `}
                 >
@@ -242,7 +242,7 @@ const Header = () => {
                     text-[18px] font-poppins block -mx-3 py-2 pl-10
                     rounded-md 
                     hover:bg-green-600 hover:text-white
-                    transition-colors duration-200
+                    transition-colors md:duration-200
                      `}
                 >
                   {" "}
@@ -255,7 +255,7 @@ const Header = () => {
                   className="text-[18px] font-poppins block -mx-3 py-2 pl-10
                     rounded-md 
                     hover:bg-green-600 hover:text-white
-                    transition-colors duration-200"
+                    transition-colors md:duration-200"
                 >
                   Connect Wallet
                 </Link>
