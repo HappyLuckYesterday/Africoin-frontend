@@ -19,7 +19,7 @@ const Footer = () => {
           </Link>
         </div>
         <div
-          className={`flex gap-x-3 sm:gap-x-12 mx-auto lg:mr-0 mb-5 ${
+          className={`flex gap-x-6 sm:gap-x-12 mx-auto lg:mr-0 mb-5 ${
             location.pathname === "/swap" && "hidden"
           }`}
         >
