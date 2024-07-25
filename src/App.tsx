@@ -4,6 +4,7 @@ import "@fontsource/poppins"; // Defaults to weight 400
 import "@fontsource/poppins/400.css"; // Specify weight
 import "@fontsource/poppins/400-italic.css"; // Specify weight and style
 import { Route, Routes } from "react-router-dom";
+import { useSelector } from "react-redux";
 import HomePage from "./pages/HomePage";
 import BlogPage from "./pages/BlogPage";
 import SwapPage from "./pages/SwapPage";
@@ -35,24 +36,32 @@ if (localStorage.token) {
 }
 
 function App() {
+  const myauth = useSelector((state: any) => state.auth);
   return (
     <div className="App">
       <Header />
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/register" element={<RegisterPage />} />
-        <Route path="/home" element={<HomePage />} />
-        <Route path="/blog" element={<BlogPage />} />
-        <Route path="/swap" element={<SwapPage />} />
-        <Route path="/faq" element={<FAQPage />} />
-        <Route path="/contact" element={<ContactPage />} />
-        <Route path="/logout" element={<Logout />} />
-        <Route path="/example" element={<LuxuryHotels />} />
-        <Route path="/admin/faq" element={<AdminFAQPage />} />
-        <Route path="/admin/blog" element={<AdminBlogPage />} />
-        <Route path="/admin/user" element={<AdminUsersPage />} />
-      </Routes>
+      {!myauth.isAuthenticated && (
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/register" element={<RegisterPage />} />
+          <Route path="/home" element={<HomePage />} />
+          <Route path="/blog" element={<BlogPage />} />
+          <Route path="/swap" element={<SwapPage />} />
+          <Route path="/faq" element={<FAQPage />} />
+          <Route path="/contact" element={<ContactPage />} />
+          <Route path="/logout" element={<Logout />} />
+          <Route path="/example" element={<LuxuryHotels />} />
+        </Routes>
+      )}
+      {myauth.isAuthenticated && (
+        <Routes>
+          <Route path="/" element={<AdminUsersPage />} />
+          <Route path="/admin/faq" element={<AdminFAQPage />} />
+          <Route path="/admin/blog" element={<AdminBlogPage />} />
+          <Route path="/admin/user" element={<AdminUsersPage />} />
+        </Routes>
+      )}
       <Footer />
     </div>
   );
