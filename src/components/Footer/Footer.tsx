@@ -1,4 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
+import { useSelector } from "react-redux";
 import Logo from "../../assests/logo.png";
 import IconDiscord from "../../assests/IconDiscord.png";
 import IconInstagram from "../../assests/IconInstagram.png";
@@ -7,6 +8,9 @@ import IconLinkedin from "../../assests/IconLinkedin.png";
 
 const Footer = () => {
   const location = useLocation();
+
+  const myauth = useSelector((state: any) => state.auth);
+
   const isCurrentPage = (path: string) => {
     return location.pathname === path;
   };
@@ -18,57 +22,94 @@ const Footer = () => {
             <img src={Logo} alt="logo" />
           </Link>
         </div>
-        <div
-          className={`flex gap-x-6 sm:gap-x-12 mx-auto lg:mr-0 mb-5 ${
-            location.pathname === "/swap" && "hidden"
-          }`}
-        >
-          <Link
-            to="/"
-            className={`${
-              isCurrentPage("/") ? "text-green-500" : "text-black"
-            } text-[18px] font-bold font-poppins block`}
+        {!myauth.isAuthenticated &&
+          <div
+            className={`flex gap-x-6 sm:gap-x-12 mx-auto lg:mr-0 mb-5 ${
+              location.pathname === "/swap" && "hidden"
+            }`}
           >
-            {" "}
-            Home
-          </Link>
-          <Link
-            to="/swap"
-            className={`${
-              isCurrentPage("/swap") ? "text-green-500" : "text-black"
-            } text-[18px] font-bold font-poppins block`}
+            <Link
+              to="/"
+              className={`${
+                isCurrentPage("/") ? "text-green-500" : "text-black"
+              } text-[18px] font-bold font-poppins block`}
+            >
+              {" "}
+              Home
+            </Link>
+            <Link
+              to="/swap"
+              className={`${
+                isCurrentPage("/swap") ? "text-green-500" : "text-black"
+              } text-[18px] font-bold font-poppins block`}
+            >
+              {" "}
+              Swap
+            </Link>
+            <Link
+              to="/blog"
+              className={`${
+                isCurrentPage("/blog") ? "text-green-500" : "text-black"
+              } text-[18px] font-bold font-poppins block`}
+            >
+              {" "}
+              Blog
+            </Link>
+            <Link
+              to="/faq"
+              className={`${
+                isCurrentPage("/faq") ? "text-green-500" : "text-black"
+              } text-[18px] font-bold font-poppins block`}
+            >
+              {" "}
+              FAQ
+            </Link>
+            <Link
+              to="/contact"
+              className={`${
+                isCurrentPage("/contact") ? "text-green-500" : "text-black"
+              } text-[18px] font-bold font-poppins block`}
+            >
+              {" "}
+              Contact
+            </Link>
+          </div>  
+        }
+        {myauth.isAuthenticated &&
+          <div
+            className={`flex gap-x-6 sm:gap-x-12 mx-auto lg:mr-0 mb-5 ${
+              location.pathname === "/swap" && "hidden"
+            }`}
           >
-            {" "}
-            Swap
-          </Link>
-          <Link
-            to="/blog"
-            className={`${
-              isCurrentPage("/blog") ? "text-green-500" : "text-black"
-            } text-[18px] font-bold font-poppins block`}
-          >
-            {" "}
-            Blog
-          </Link>
-          <Link
-            to="/faq"
-            className={`${
-              isCurrentPage("/faq") ? "text-green-500" : "text-black"
-            } text-[18px] font-bold font-poppins block`}
-          >
-            {" "}
-            FAQ
-          </Link>
-          <Link
-            to="/contact"
-            className={`${
-              isCurrentPage("/contact") ? "text-green-500" : "text-black"
-            } text-[18px] font-bold font-poppins block`}
-          >
-            {" "}
-            Contact
-          </Link>
-        </div>  
+            <Link
+              to="/admin/user"
+              className={`${
+                isCurrentPage("/admin/user") ? "text-green-500" : "text-black"
+              } text-[18px] font-bold font-poppins block`}
+            >
+              {" "}
+              User
+            </Link>
+            <Link
+              to="/admin/blog"
+              className={`${
+                isCurrentPage("/admin/blog") ? "text-green-500" : "text-black"
+              } text-[18px] font-bold font-poppins block`}
+            >
+              {" "}
+              Blog
+            </Link>
+            <Link
+              to="/admin/faq"
+              className={`${
+                isCurrentPage("/admin/faq") ? "text-green-500" : "text-black"
+              } text-[18px] font-bold font-poppins block`}
+            >
+              {" "}
+              FAQ
+            </Link>
+          </div>  
+        }
       </div>
       <div
           className={`flex justify-center mx-auto mb-5 mt-5 ${

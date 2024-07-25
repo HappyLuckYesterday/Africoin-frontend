@@ -1,12 +1,12 @@
 // DataTable.tsx
 import React, { useState, useEffect } from 'react';
-import Table from '../components/Table/Blog/Table';
-import Pagination from '../components/Table/Blog/Pagination';
-import Modal from '../components/Table/Blog/Modal';
-import { RowData } from '../components/Table/Blog/types';
-import { fetchData, addRow, updateRow, deleteRow } from '../components/Table/Blog/api';
+import Table from './Table';
+import Pagination from './Pagination';
+import Modal from './Modal';
+import { RowData } from './types';
+import { fetchData, addRow, updateRow, deleteRow } from './api';
 
-const AdminBlogPage: React.FC = () => {
+const DataTable: React.FC = () => {
   const [rows, setRows] = useState<RowData[]>([]);
   const [filteredRows, setFilteredRows] = useState<RowData[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
@@ -17,7 +17,6 @@ const AdminBlogPage: React.FC = () => {
   const [modalData, setModalData] = useState<RowData | null>(null);
 
   const refreshRows = () => {
-    console.log("rows: ", rows);
     const filteredRows = rows.filter(row =>
       Object.values(row).some(value => value.toString().toLowerCase().includes(searchQuery.toLowerCase())) 
     );
@@ -82,12 +81,9 @@ const AdminBlogPage: React.FC = () => {
   };
   
   return (
-    <div className='mx-10'>
-      <div>
-        <h1 className='text-[48px]'>Blog Table</h1>
-      </div>
+    <div>
       <div className='flex'>
-        <button className='justify-end px-4 py-2 border border-gray-300 text-sm font-medium rounded-md transition bg-white text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500'
+        <button className='justify-end px-4 py-2 mb-5 border border-gray-300 text-sm font-medium rounded-md transition bg-white text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500'
         onClick={() => setShowModal(true)}
       > Add </button>
       </div>
@@ -119,4 +115,4 @@ const AdminBlogPage: React.FC = () => {
   );
 };
 
-export default AdminBlogPage;
+export default DataTable;

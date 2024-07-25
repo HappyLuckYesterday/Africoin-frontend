@@ -84,7 +84,7 @@ const RegisterPage = () => {
     return (
         <div className="p-10 flex flex-col items-center">
             <h1 className="font-poppins text-[32px] sm:text-[48px] md:text-[56px] lg:text-[64px] xl:text-[72px] text-left">
-                Welcome to Africoin
+                Welcome to <b className="text-green-500">Africoin</b>
             </h1>
             <p className="font-poppins text-[18px] md:text-[22px] xl:text-[25px] text-left">
                 Register your account.

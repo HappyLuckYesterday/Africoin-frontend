@@ -16,7 +16,7 @@ export const loginUser = (userData: any, dispatch: any, navigate: any) => {
                 type: SET_CURRENT_USER,
                 payload: user,
             });
-            navigate("/home");
+            navigate("/admin/user");
         })
         .catch((err) =>
             dispatch({

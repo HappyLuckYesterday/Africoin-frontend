@@ -18,6 +18,10 @@ import { jwtDecode } from "jwt-decode";
 import setAuthToken from "./utils/setAuthToken";
 import store from "./redux/store";
 import { SET_CURRENT_USER } from "./redux/reducers/actionTypes/types";
+import AdminFAQPage from "./pages/AdminFAQPage";
+import AdminBlogPage from "./pages/AdminBlogsPage";
+import AdminUsersPage from "./pages/AdminUsersPage";
+import Logout from "./pages/Logout";
 
 if (localStorage.token) {
   const token = localStorage.token;
@@ -43,7 +47,11 @@ function App() {
         <Route path="/swap" element={<SwapPage />} />
         <Route path="/faq" element={<FAQPage />} />
         <Route path="/contact" element={<ContactPage />} />
+        <Route path="/logout" element={<Logout />} />
         <Route path="/example" element={<LuxuryHotels />} />
+        <Route path="/admin/faq" element={<AdminFAQPage />} />
+        <Route path="/admin/blog" element={<AdminBlogPage />} />
+        <Route path="/admin/user" element={<AdminUsersPage />} />
       </Routes>
       <Footer />
     </div>
