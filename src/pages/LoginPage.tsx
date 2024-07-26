@@ -117,11 +117,11 @@ const LoginPage = () => {
                     Login
                     <ArrowUpRightOutline className="w-6 h-6 inline pl-2" />
                 </button>
-                {submitted && (
+                {/* {submitted && (
                     <p className="text-green-500 text-sm pt-4 text-center">
                         Form submitted successfully!
                     </p>
-                )}
+                )} */}
                 <div className="flex justify-center my-5">
                     <p className="text-gray-600 pr-5">New here?</p>
                     <Link to="/register" className="font-bold">Register here.</Link>

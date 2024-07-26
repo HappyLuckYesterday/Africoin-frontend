@@ -259,7 +259,7 @@ const Header = () => {
             {!myauth.isAuthenticated &&
               <div className="-my-6 divide-y divide-gray-500/10">
                 <div
-                  className="py-6"
+                  className="pt-6"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   <Link
@@ -330,6 +330,24 @@ const Header = () => {
                 <div className="py-6" onClick={() => setMobileMenuOpen(false)}>
                   <Link
                     to="/login"
+                    className="text-[18px] font-poppins block -mx-3 py-2 pl-10
+                      rounded-md 
+                      hover:bg-green-600 hover:text-white
+                      transition-colors md:duration-200"
+                  >
+                    Login
+                  </Link>
+                  <Link
+                    to="/signup"
+                    className="text-[18px] font-poppins block -mx-3 py-2 pl-10
+                      rounded-md 
+                      hover:bg-green-600 hover:text-white
+                      transition-colors md:duration-200"
+                  >
+                    Signup
+                  </Link>
+                  <Link
+                    to=""
                     className="text-[18px] font-poppins block -mx-3 py-2 pl-10
                       rounded-md 
                       hover:bg-green-600 hover:text-white

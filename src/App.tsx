@@ -50,7 +50,6 @@ function App() {
           <Route path="/swap" element={<SwapPage />} />
           <Route path="/faq" element={<FAQPage />} />
           <Route path="/contact" element={<ContactPage />} />
-          <Route path="/logout" element={<Logout />} />
           <Route path="/example" element={<LuxuryHotels />} />
         </Routes>
       )}
@@ -60,6 +59,7 @@ function App() {
           <Route path="/admin/faq" element={<AdminFAQPage />} />
           <Route path="/admin/blog" element={<AdminBlogPage />} />
           <Route path="/admin/user" element={<AdminUsersPage />} />
+          <Route path="/logout" element={<Logout />} />
         </Routes>
       )}
       <Footer />
