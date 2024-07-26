@@ -235,7 +235,7 @@ const Header = () => {
         </div>
       </nav>
       <Dialog
-        className="lg:hidden"
+        className="min-[1220px]:hidden"
         open={mobileMenuOpen}
         onClose={setMobileMenuOpen}
       >
@@ -283,7 +283,7 @@ const Header = () => {
                       rounded-md 
                       hover:bg-green-600 hover:text-white
                       transition-colors md:duration-200
-                      border-b-2
+                      border-b-2c 
                     `}
                   >
                     Swap
