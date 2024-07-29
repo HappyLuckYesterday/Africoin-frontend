@@ -187,16 +187,22 @@ const HomePage: React.FC = () => {
         </p>
         <div className="flex justify-around flex-wrap mt-10">
           <BlogCard
+            _id=""
             image="./back1.png"
             title={
               "Pioneering Eco-Responsible Blockchain in EU’s DigitalStrategy"
             }
             content={""}
+            view={0}
+            like={0}
           />
           <BlogCard
             image="./back2.png"
             title={"Dive into the world of Greenercoin with our Testnet!"}
             content={""}
+            _id=""
+            view={0}
+            like={0}
           />
           <BlogCard
             image="./back3.png"
@@ -204,6 +210,9 @@ const HomePage: React.FC = () => {
               "Pioneering Eco-Responsible Blockchain in EU’s DigitalStrategy"
             }
             content={""}
+            _id=""
+            view={0}
+            like={0}
           />
         </div>
       </div>

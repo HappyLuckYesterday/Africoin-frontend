@@ -15,6 +15,20 @@ export const fetchData = async (): Promise<RowData[]> => {
   }
 };
 
+export const getBlog = async (id: string): Promise<RowData> => {
+  try {
+    const response = await fetch(`${API_URL}/blog/${id}`);
+    if (!response) {
+      throw new Error('Failed to fetch data');
+    }
+    // console.log("blog", response.json());
+    return await response.json();
+  } catch (error) {
+    console.error('Error fetching data:', error);
+    return {_id: '', image: '', title: '', body: '', view: 0, like: 0};
+  }
+}
+
 export const addRow = async (newRow: RowData): Promise<RowData> => {
   console.log('newRow', newRow);
   const { _id, ...rowWithoutId } = newRow; // remove _id since it will be generated on server

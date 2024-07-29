@@ -1,15 +1,20 @@
 import { HandThumbUpIcon } from "@heroicons/react/24/solid";
 import { ArrowUpRightIcon } from "@heroicons/react/24/outline";
+import { useNavigate } from "react-router-dom";
 
 interface BlogCardProps {
+  _id: string;
   image: string;
   title: string;
   content: string;
+  like: number;
+  view: number;
 }
 
-const BlogCard: React.FC<BlogCardProps> = ({ image, title, content }) => {
+const BlogCard: React.FC<BlogCardProps> = ({ _id, image, title, content, like, view }) => {
+  const navigate = useNavigate();
   return (
-    <div className="relative h-[600px] w-[400px] rounded-[30px] mb-10 cursor-pointer hover:shadow-[0px_0px_20px_gray]">
+    <div className="relative h-[600px] w-[400px] rounded-[30px] mb-10 cursor-pointer hover:shadow-[0px_0px_20px_gray]" onClick={() => navigate(`/blog/${_id}`)}>
       <img src={image} alt="back" className="w-full h-full" />
       <div
         style={{
@@ -25,10 +30,10 @@ const BlogCard: React.FC<BlogCardProps> = ({ image, title, content }) => {
         </p>
         <div className="flex justify-between items-center text-[20px]">
           <p className="text-[#2A9646]">20 Apr</p>
-          <div className="flex items-center">
+          {/* <div className="flex items-center">
             <p className="text-white p-1 mr-5">
               <HandThumbUpIcon className="size-6 inline" />
-              20
+              {like}
             </p>
             <p className="text-white">
               <svg
@@ -50,9 +55,9 @@ const BlogCard: React.FC<BlogCardProps> = ({ image, title, content }) => {
                   d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
                 />
               </svg>
-              20
-            </p>
-          </div>
+              {view}
+            </p> 
+          </div> */}
         </div>
         {/* <p className='text-[25px] font-poppins text-white truncate'>{content}</p> */}
       </div>
