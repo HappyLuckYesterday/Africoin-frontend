@@ -14,7 +14,7 @@ interface BlogCardProps {
 const BlogCard: React.FC<BlogCardProps> = ({ _id, image, title, content, like, view }) => {
   const navigate = useNavigate();
   return (
-    <div className="relative h-[600px] w-[400px] rounded-[30px] mb-10 cursor-pointer hover:shadow-[0px_0px_20px_gray]" onClick={() => navigate(`/blog/${_id}`)}>
+    <div className="relative h-[500px] w-[320px] rounded-[30px] mb-10 cursor-pointer hover:shadow-[0px_0px_20px_gray]" onClick={() => navigate(`/blog/${_id}`)}>
       <img src={image} alt="back" className="w-full h-full" />
       <div
         style={{
@@ -25,10 +25,10 @@ const BlogCard: React.FC<BlogCardProps> = ({ _id, image, title, content, like, v
       ></div>
       <ArrowUpRightIcon className="absolute right-7 top-7 text-white w-9 h-9" />
       <div className="absolute bottom-0 left-0 p-5">
-        <p className="text-[35px] font-poppins text-white text-left mb-[50px] leading-none">
+        <p className="text-[24px] font-poppins text-white text-left mb-[50px] leading-none">
           {title}
         </p>
-        <div className="flex justify-between items-center text-[20px]">
+        <div className="flex justify-between items-center text-[16px]">
           <p className="text-[#2A9646]">20 Apr</p>
           {/* <div className="flex items-center">
             <p className="text-white p-1 mr-5">

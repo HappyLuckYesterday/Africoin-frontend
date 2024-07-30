@@ -19,29 +19,30 @@ const BlogViewPage = () => {
     // }
 
     return (
-        <div className="flex flex-wrap text-center items-center">
-            <div className="relative h-[500px] w-[320px] rounded-[30px] mb-10 cursor-pointer hover:shadow-[0px_0px_20px_gray]">
-                <img src="./back1.png" alt="back" className="w-full h-full mx-auto" />
-                <div
-                    style={{
-                    background:
-                        "linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000002 100%)",
-                    }}
-                    className="absolute w-full h-[80%] left-0 top-[20%] rounded-[30px]"
-                ></div>
-                <ArrowUpRightIcon className="absolute right-7 top-7 text-white w-9 h-9" />
-                <div className="absolute bottom-0 left-0 p-5">
-                    <p className="text-[35px] font-poppins text-white text-left mb-[50px] leading-none">
-                    {blogData.title}
-                    </p>
-                    <div className="flex justify-between items-center text-[20px]">
-                        <p className="text-[#2A9646]">20 Apr</p>
+        <div className="sm:container mx-auto sm:mx-auto sm:p-4">
+            <div className="flex flex-col sm:gap-6">
+                <div className="relative w-full text-left">
+                    <div className="relative mx-auto md:float-left h-[500px] w-[320px] rounded-[30px] mb-4 md:mr-10 cursor-pointer hover:shadow-lg hover:shadow-gray-500 transition-shadow duration-300 ease-in-out absolute top-0 left-0">
+                        <img src="../back1.png" alt="back" className="w-full h-full object-cover rounded-[30px]" />
+                        <div
+                        style={{
+                            background: "linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000002 100%)",
+                        }}
+                        className="absolute w-full h-[80%] left-0 top-[20%] rounded-[30px]"
+                        ></div>
+                        <ArrowUpRightIcon className="absolute right-7 top-7 text-white w-9 h-9" />
+                        <div className="absolute bottom-0 left-0 p-5">
+                        <p className="text-[24px] font-poppins text-white text-left mb-[50px] leading-none">
+                            {blogData.title}
+                        </p>
+                        <div className="flex justify-between items-center text-[16px]">
+                            <p className="text-[#2A9646]">20 Apr</p>
+                        </div>
+                        </div>
                     </div>
+                    <h1 className="text-[36px] font-bold mb-4 mx-5">{blogData.title}</h1>
+                    <p className="text-[18px] leading-relaxed mx-5">{blogData.body}</p>
                 </div>
-            </div>
-            <div>
-                <h1 className="text-[47px]">{blogData.title}</h1>
-                <p className="text-[24px]">{blogData.body}</p>
             </div>
         </div>
     );
