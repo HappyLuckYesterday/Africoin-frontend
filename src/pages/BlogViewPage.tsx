@@ -40,8 +40,8 @@ const BlogViewPage = () => {
                 </div>
             </div>
             <div>
-                <h1>{blogData.title}</h1>
-                <p>{blogData.body}</p>
+                <h1 className="text-[47px]">{blogData.title}</h1>
+                <p className="text-[24px]">{blogData.body}</p>
             </div>
         </div>
     );
