@@ -93,7 +93,7 @@ const RegisterPage = () => {
             <form
                 onSubmit={handleSubmit}
                 noValidate
-                className="w-1/3 max-w-3xl min-w-[500px] pt-6 bg-gray-200 rounded-3xl"
+                className="w-1/3 max-w-3xl min-w-[350px] pt-6 bg-gray-200 rounded-3xl"
             >
                 <div className="pb-5 mx-5">
                     <label

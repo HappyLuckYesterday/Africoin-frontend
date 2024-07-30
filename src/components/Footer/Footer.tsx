@@ -24,7 +24,7 @@ const Footer = () => {
         </div>
         {!myauth.isAuthenticated &&
           <div
-            className={`flex gap-x-6 sm:gap-x-12 mx-auto lg:mr-0 mb-5 ${
+            className={`flex gap-x-2 min-[400px]:gap-x-4 min-[500px]:gap-x-6 sm:gap-x-12 mx-auto lg:mr-0 mb-5 ${
               location.pathname === "/swap" && "hidden"
             }`}
           >
