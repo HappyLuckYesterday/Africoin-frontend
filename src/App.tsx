@@ -42,12 +42,10 @@ function App() {
 
   // Function to rehydrate auth state from storage
   useEffect(() => {
-    const authToken = localStorage.getItem('authToken');
-    if (authToken) {
-      setIsAuthenticated(true);
-    }
+    const myauth = useSelector((state: any) => state.auth);
+    setIsAuthenticated(myauth.isAuthenticated);
   }, []);
-
+  
   return (
     <div className="App">
       <Header />
@@ -65,7 +63,7 @@ function App() {
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/example" element={<LuxuryHotels />} />
           </>
-        ) : (
+        ): (
           <>
             <Route path="/" element={<AdminUsersPage />} />
             <Route path="/admin/faq" element={<AdminFAQPage />} />
@@ -74,7 +72,6 @@ function App() {
             <Route path="/logout" element={<Logout />} />
           </>
         )}
-        {/* Catch-all route to redirect unauthenticated users */}
         <Route path="*" element={<Navigate to={isAuthenticated ? "/" : "/login"} />} />
       </Routes>
       <Footer />
