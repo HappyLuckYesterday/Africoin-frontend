@@ -3,7 +3,7 @@ import "./App.css";
 import "@fontsource/poppins"; // Defaults to weight 400
 import "@fontsource/poppins/400.css"; // Specify weight
 import "@fontsource/poppins/400-italic.css"; // Specify weight and style
-import { Route, Router, Routes, useNavigate } from "react-router-dom";
+import { Navigate, Route, Router, Routes, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import HomePage from "./pages/HomePage";
 import BlogPage from "./pages/BlogPage";
@@ -24,6 +24,7 @@ import AdminBlogPage from "./pages/AdminBlogsPage";
 import AdminUsersPage from "./pages/AdminUsersPage";
 import Logout from "./pages/Logout";
 import BlogViewPage from "./pages/BlogViewPage";
+import { useEffect, useState } from "react";
 
 if (localStorage.token) {
   const token = localStorage.token;
@@ -37,13 +38,21 @@ if (localStorage.token) {
 }
 
 function App() {
-  const myauth = useSelector((state: any) => state.auth);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+  // Function to rehydrate auth state from storage
+  useEffect(() => {
+    const authToken = localStorage.getItem('authToken');
+    if (authToken) {
+      setIsAuthenticated(true);
+    }
+  }, []);
 
   return (
     <div className="App">
       <Header />
       <Routes>
-        {!myauth.isAuthenticated && (
+        {!isAuthenticated ? (
           <>
             <Route path="/" element={<HomePage />} />
             <Route path="/login" element={<LoginPage />} />
@@ -56,8 +65,7 @@ function App() {
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/example" element={<LuxuryHotels />} />
           </>
-        )}
-        {myauth.isAuthenticated && (
+        ) : (
           <>
             <Route path="/" element={<AdminUsersPage />} />
             <Route path="/admin/faq" element={<AdminFAQPage />} />
@@ -66,6 +74,8 @@ function App() {
             <Route path="/logout" element={<Logout />} />
           </>
         )}
+        {/* Catch-all route to redirect unauthenticated users */}
+        <Route path="*" element={<Navigate to={isAuthenticated ? "/" : "/login"} />} />
       </Routes>
       <Footer />
     </div>
