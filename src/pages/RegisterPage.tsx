@@ -72,7 +72,7 @@ const RegisterPage = () => {
         if (validate()) {
             console.log("Form data:", formData);
             setSubmitted(true);
-            axios.post("https://cff9-2600-1f16-2b2-ef00-b24e-e6e0-e03c-eef4.ngrok-free.app/api/user/register", formData).then((res) => {
+            axios.post("https://e56f-2600-1f16-2b2-ef00-b24e-e6e0-e03c-eef4.ngrok-free.app/api/user/register", formData).then((res) => {
                 console.log(res);
                 // localStorage.setItem("cur_email", formData.email);
                 navigate("/login");
