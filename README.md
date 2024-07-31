@@ -9,7 +9,7 @@ In the project directory, you can run:
 ### `npm start`
 
 Runs the app in the development mode.\
-Open [https://africoin-server.vercel.app](https://africoin-server.vercel.app) to view it in the browser.
+Open [https://8bbf-2600-1f16-2b2-ef00-b24e-e6e0-e03c-eef4.ngrok-free.app](https://8bbf-2600-1f16-2b2-ef00-b24e-e6e0-e03c-eef4.ngrok-free.app) to view it in the browser.
 
 The page will reload if you make edits.\
 You will also see any lint errors in the console.

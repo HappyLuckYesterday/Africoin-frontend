@@ -82,7 +82,7 @@ const ContactForm: React.FC = () => {
     if (validate()) {
       console.log("Form data:", formData);
       setSubmitted(true);
-      axios.post("https://africoin-server.vercel.app/api/contact", formData).then((res) => {
+      axios.post("https://8bbf-2600-1f16-2b2-ef00-b24e-e6e0-e03c-eef4.ngrok-free.app/api/contact", formData).then((res) => {
         console.log(res.data);
       })
         .catch((err) => console.log(err));
