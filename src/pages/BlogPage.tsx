@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import BlogCard from "../components/Cards/BlogCard";
 import { RowData } from "../components/Table/Blog/types";
 import { fetchData } from "../components/Table/Blog/api";
+import { DotLoader } from "react-spinners";
 
 const BlogPage = () => {
   const [blogs, setBlogs] = useState<RowData[]>([]);
@@ -123,7 +124,13 @@ const BlogPage = () => {
     <div>
       <div className="container">
         <h1 className="text-[72px] font-bold">Blog</h1>
-        <div className="flex justify-around flex-wrap gap-3 mt-10">
+        <div className="flex justify-around flex-wrap gap-12 mt-10 max-w-[1200px] mx-auto">
+          {blogs.length == 0 && 
+            <div className="flex flex-col justify-center items-center my-25 py-10">
+              <DotLoader />
+              <p className="text-2xl mt-20">Loading...</p>
+            </div>
+          }
           {blogs.map((blog, index) => (
             <BlogCard
               _id={blog._id}

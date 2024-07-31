@@ -2,40 +2,33 @@
 import React, { useState } from "react";
 import { ArrowUpRightIcon as ArrowUpRightOutline } from "@heroicons/react/24/outline";
 import axios from "axios";
-
-interface FormData {
-  firstname: string;
-  lastname: string;
-  country: string;
-  organization: string;
-  email: string;
-  phone: string;
-  message: string;
-}
+import { RowData } from "../Table/Contacts/types";
 
 const ContactForm: React.FC = () => {
 
-  const [formData, setFormData] = useState<FormData>({
-    firstname: "",
-    lastname: "",
+  const [formData, setFormData] = useState<RowData>({
+    _id: "",
+    first_name: "",
+    last_name: "",
     country: "",
     organization: "",
     phone: "",
     email: "",
     message: "",
   });
-  const [errors, setErrors] = useState<Partial<FormData>>({});
+
+  const [errors, setErrors] = useState<Partial<RowData>>({});
   const [submitted, setSubmitted] = useState(false);
 
   const validate = (): boolean => {
-    const newErrors: Partial<FormData> = {};
+    const newErrors: Partial<RowData> = {};
 
-    if (!formData.firstname) {
-      newErrors.firstname = "First Name is required";
+    if (!formData.first_name) {
+      newErrors.first_name = "First Name is required";
     }
 
-    if (!formData.lastname) {
-      newErrors.lastname = "Last Name is required";
+    if (!formData.last_name) {
+      newErrors.last_name = "Last Name is required";
     }
 
     if (!formData.country) {
@@ -82,7 +75,7 @@ const ContactForm: React.FC = () => {
     if (validate()) {
       console.log("Form data:", formData);
       setSubmitted(true);
-      axios.post("https://africoin-server.vercel.app//api/contact", formData).then((res) => {
+      axios.post("https://africoin-server.vercel.app/api/contact", formData).then((res) => {
         console.log(res.data);
       })
         .catch((err) => console.log(err));
@@ -115,13 +108,13 @@ const ContactForm: React.FC = () => {
               id="firstname"
               name="firstname"
               type="text"
-              className={`w-full p-3 border rounded-lg ${errors.firstname ? "border-red-500" : "border-gray-300"
+              className={`w-full p-3 border rounded-lg ${errors.first_name ? "border-red-500" : "border-gray-300"
                 }`}
-              value={formData.firstname}
+              value={formData.first_name}
               onChange={handleChange}
             />
-            {errors.firstname && (
-              <p className="text-red-500 text-sm pt-1">{errors.firstname}</p>
+            {errors.first_name && (
+              <p className="text-red-500 text-sm pt-1">{errors.first_name}</p>
             )}
           </div>
           <div className="w-full md:w-1/2 pr-3 pb-6 md:pb-0">
@@ -135,13 +128,13 @@ const ContactForm: React.FC = () => {
               id="lastname"
               name="lastname"
               type="email"
-              className={`w-full p-3 border rounded-lg ${errors.lastname ? "border-red-500" : "border-gray-300"
+              className={`w-full p-3 border rounded-lg ${errors.last_name ? "border-red-500" : "border-gray-300"
                 }`}
-              value={formData.lastname}
+              value={formData.last_name}
               onChange={handleChange}
             />
-            {errors.lastname && (
-              <p className="text-red-500 text-sm pt-1">{errors.lastname}</p>
+            {errors.last_name && (
+              <p className="text-red-500 text-sm pt-1">{errors.last_name}</p>
             )}
           </div>
         </div>

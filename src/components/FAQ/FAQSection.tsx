@@ -3,6 +3,7 @@ import { ChevronDownIcon } from "@heroicons/react/24/outline";
 import { fetchData } from "../Table/Faq/api";
 import { RowData } from "../Table/Faq/types";
 import "./style.css";
+import { DotLoader } from "react-spinners";
 
 const FAQSection: React.FC = () => {
   const [questions, setQuestions] = useState<RowData[]>([]);
@@ -21,6 +22,12 @@ const FAQSection: React.FC = () => {
   return (
     <div className="mt-10 border-solid rounded-[50px] ">
       <div className="space-y-5">
+        {questions.length == 0 && 
+          <div className="flex flex-col justify-center items-center my-25 py-10">
+            <DotLoader />
+            <p className="text-2xl mt-20">Loading...</p>
+          </div>
+        }
         {questions.map((qa, index) => (
           <div
             key={index}

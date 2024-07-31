@@ -15,7 +15,7 @@ const BlogCard: React.FC<BlogCardProps> = ({ _id, image, title, content, like, v
   const navigate = useNavigate();
   return (
     <div className="relative h-[500px] w-[320px] rounded-[30px] mb-10 cursor-pointer hover:shadow-[0px_0px_20px_gray]" onClick={() => navigate(`/blog/${_id}`)}>
-      <img src={image} alt="back" className="w-full h-full" />
+      <img src={image} alt="back" className="w-full h-full rounded-[30px]" />
       <div
         style={{
           background:
