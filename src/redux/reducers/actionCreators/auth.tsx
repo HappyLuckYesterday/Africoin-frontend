@@ -8,7 +8,7 @@ axios.defaults.headers.post["Content-Type"] = "application/x-www-form-urlencoded
 export const loginUser = (userData: any, dispatch: any, navigate: any) => {
     console.log(userData);
     axios
-        .post("https://8bbf-2600-1f16-2b2-ef00-b24e-e6e0-e03c-eef4.ngrok-free.app:5000/api/user/login", userData)
+        .post("http://localhost:5000/api/user/login", userData)
         .then((res) => {
             localStorage.setItem("token", res.data.token);
             const user = jwtDecode(res.data.token);
