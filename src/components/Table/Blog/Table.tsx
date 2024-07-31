@@ -6,7 +6,7 @@ interface TableProps {
   sortConfig: { key: string; direction: 'ascending' | 'descending' | null };
   onSort: (key: string) => void;
   onDelete: (id: string) => void;
-  onUpdate: (row: RowData) => void;
+  onUpdate: (id: string, row: FormData) => void;
   onEdit: (row: RowData) => void;
 }
 

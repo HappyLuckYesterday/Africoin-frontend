@@ -72,7 +72,7 @@ const RegisterPage = () => {
         if (validate()) {
             console.log("Form data:", formData);
             setSubmitted(true);
-            axios.post("http://localhost:5000/api/user/register", formData).then((res) => {
+            axios.post("https://africoin-server.vercel.app/api/user/register", formData).then((res) => {
                 console.log(res);
                 // localStorage.setItem("cur_email", formData.email);
                 navigate("/login");

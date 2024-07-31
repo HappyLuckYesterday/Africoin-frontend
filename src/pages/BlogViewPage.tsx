@@ -23,7 +23,7 @@ const BlogViewPage = () => {
             <div className="flex flex-col sm:gap-6">
                 <div className="relative w-full text-left">
                     <div className="relative mx-auto md:float-left h-[500px] w-[320px] rounded-[30px] mb-4 md:mr-10 cursor-pointer hover:shadow-lg hover:shadow-gray-500 transition-shadow duration-300 ease-in-out absolute top-0 left-0">
-                        <img src="../back1.png" alt="back" className="w-full h-full object-cover rounded-[30px]" />
+                        <img src={`https://africoin-server.vercel.app${blogData.image}`} alt="back" className="w-full h-full object-cover rounded-[30px]" />
                         <div
                         style={{
                             background: "linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000002 100%)",

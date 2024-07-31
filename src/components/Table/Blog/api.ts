@@ -1,10 +1,17 @@
 import { RowData } from './types';
+import axios from 'axios';
 
-const API_URL = 'http://localhost:5000/api'; // Replace with your actual API URL
+const API_URL = 'https://africoin-server.vercel.app/api/blog'; // Replace with your actual API URL
+
+export const getItems = () => axios.get(API_URL);
+export const getItemById = (id: string) => axios.get(`${API_URL}/${id}`);
+export const createItem = (item: FormData) => axios.post(API_URL, item);
+export const updateItem = (id: string, item: FormData) => axios.put(`${API_URL}/${id}`, item);
+export const deleteItem = (id: string) => axios.delete(`${API_URL}/${id}`);
 
 export const fetchData = async (): Promise<RowData[]> => {
   try {
-    const response = await fetch(`${API_URL}/blog/list`);
+    const response = await fetch(`${API_URL}/list`);
     if (!response) {
       throw new Error('Failed to fetch data');
     }
@@ -17,7 +24,7 @@ export const fetchData = async (): Promise<RowData[]> => {
 
 export const getBlog = async (id: string): Promise<RowData> => {
   try {
-    const response = await fetch(`${API_URL}/blog/${id}`);
+    const response = await fetch(`${API_URL}/${id}`);
     if (!response) {
       throw new Error('Failed to fetch data');
     }
@@ -29,16 +36,15 @@ export const getBlog = async (id: string): Promise<RowData> => {
   }
 }
 
-export const addRow = async (newRow: RowData): Promise<RowData> => {
+export const addRow = async (newRow: FormData): Promise<RowData> => {
   console.log('newRow', newRow);
-  const { _id, ...rowWithoutId } = newRow; // remove _id since it will be generated on server
   try {
-    const response = await fetch(`${API_URL}/blog`, {
+    const response = await fetch(`${API_URL}`, {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(rowWithoutId),
+      // headers: {
+      //   'Content-Type': 'application/json',
+      // },
+      body: newRow,
     });
     if (!response.ok) {
       throw new Error('Failed to add row');
@@ -50,14 +56,15 @@ export const addRow = async (newRow: RowData): Promise<RowData> => {
   }
 };
 
-export const updateRow = async (updatedRow: RowData): Promise<RowData> => {
+export const updateRow = async (id: string, updatedRow: FormData): Promise<RowData> => {
+  console.log('updatedRow', updatedRow);
   try {
-    const response = await fetch(`${API_URL}/blog/${updatedRow._id}`, {
+    const response = await fetch(`${API_URL}/${id}`, {
       method: 'PUT',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(updatedRow),
+      // headers: {
+      //   'Content-Type': 'application/json',
+      // },
+      body: updatedRow,
     });
     if (!response.ok) {
       throw new Error('Failed to update row');
@@ -71,7 +78,7 @@ export const updateRow = async (updatedRow: RowData): Promise<RowData> => {
 
 export const deleteRow = async (id: string): Promise<void> => {
   try {
-    const response = await fetch(`${API_URL}/blog/${id}`, {
+    const response = await fetch(`${API_URL}/${id}`, {
       method: 'DELETE',
     });
     if (!response.ok) {

@@ -50,7 +50,7 @@ const AdminBlogPage: React.FC = () => {
     setSortConfig({ key, direction });
   };
 
-  const handleAddRow = async (newRow: RowData) => {
+  const handleAddRow = async (id:string, newRow: FormData) => {
     try {
       const addedRow = await addRow(newRow);
       setRows([...rows, addedRow]);
@@ -61,9 +61,9 @@ const AdminBlogPage: React.FC = () => {
     }
   };
 
-  const handleUpdateRow = async (updatedRow: RowData) => {
+  const handleUpdateRow = async (id:string, updatedRow: FormData) => {
     try {
-      const updated = await updateRow(updatedRow);
+      const updated = await updateRow(id, updatedRow);
       setRows(rows.map(row => (row._id === updated._id ? updated : row)));
       setShowModal(false);
       setModalData(null);

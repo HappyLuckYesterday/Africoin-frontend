@@ -4,7 +4,7 @@ import { RowData } from './types';
 interface ModalProps {
   isOpen: boolean;
   onClose: () => void;
-  onSubmit: (data: RowData) => void;
+  onSubmit: (id: string, data: FormData) => void;
   initialData?: RowData | null;
 }
 
@@ -19,6 +19,8 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, onSubmit, initialData })
     }
   }, [initialData]);
 
+  const [image, setImage] = useState<File | null>(null);
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
@@ -26,7 +28,20 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, onSubmit, initialData })
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    onSubmit(formData);
+    const formData2 = new FormData();
+    formData2.append('title', formData.title);
+    formData2.append('body', formData.body);
+    if (image) {
+      formData2.append('image', image);
+    }
+    formData2.append('date', formData.like.toString());
+    formData2.append('views', formData.view.toString());
+    if (initialData?._id) {
+      onSubmit(initialData._id, formData2);
+    } else {
+      onSubmit("-1", formData2);
+    }
+    
     setFormData(emptyRow);
   };
 
@@ -59,6 +74,19 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, onSubmit, initialData })
                       required
                     />
                   </div> */}
+                  <div className="mb-4">
+                    <label htmlFor="image" className="block text-gray-700 text-sm font-bold mb-2">
+                      Image
+                    </label>
+                    <input
+                      type="file"
+                      id="image"
+                      name="image"
+                      onChange={(e) => setImage(e.target.files ? e.target.files[0] : null)}                      
+                      className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                      required
+                    />
+                  </div>
                   <div className="mb-4">
                     <label htmlFor="title" className="block text-gray-700 text-sm font-bold mb-2">
                       Title

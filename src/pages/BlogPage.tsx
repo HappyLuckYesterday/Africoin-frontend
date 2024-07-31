@@ -128,7 +128,7 @@ const BlogPage = () => {
             <BlogCard
               _id={blog._id}
               key={index}
-              image="../back1.png"
+              image={blog.image}
               title={blog.title}
               content={blog.body}
               view={blog.view}

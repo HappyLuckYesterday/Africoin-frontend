@@ -38,19 +38,13 @@ if (localStorage.token) {
 }
 
 function App() {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const myauth = useSelector((state: any) => state.auth);
 
-  // Function to rehydrate auth state from storage
-  useEffect(() => {
-    const myauth = useSelector((state: any) => state.auth);
-    setIsAuthenticated(myauth.isAuthenticated);
-  }, []);
-  
   return (
     <div className="App">
       <Header />
       <Routes>
-        {!isAuthenticated ? (
+        {!myauth.isAuthenticated && (
           <>
             <Route path="/" element={<HomePage />} />
             <Route path="/login" element={<LoginPage />} />
@@ -62,17 +56,19 @@ function App() {
             <Route path="/faq" element={<FAQPage />} />
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/example" element={<LuxuryHotels />} />
+            <Route path="*" element={<Navigate to="/" />} />
           </>
-        ): (
+        )}
+        {myauth.isAuthenticated && (
           <>
             <Route path="/" element={<AdminUsersPage />} />
             <Route path="/admin/faq" element={<AdminFAQPage />} />
             <Route path="/admin/blog" element={<AdminBlogPage />} />
             <Route path="/admin/user" element={<AdminUsersPage />} />
             <Route path="/logout" element={<Logout />} />
+            <Route path="*" element={<Navigate to="/" />} />
           </>
         )}
-        <Route path="*" element={<Navigate to={isAuthenticated ? "/" : "/login"} />} />
       </Routes>
       <Footer />
     </div>
