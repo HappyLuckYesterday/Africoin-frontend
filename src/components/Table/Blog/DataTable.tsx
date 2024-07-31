@@ -49,7 +49,7 @@ const DataTable: React.FC = () => {
     setSortConfig({ key, direction });
   };
 
-  const handleAddRow = async (id:string, newRow: FormData) => {
+  const handleAddRow = async (newRow: RowData) => {
     try {
       const addedRow = await addRow(newRow);
       setRows([...rows, addedRow]);
@@ -60,9 +60,9 @@ const DataTable: React.FC = () => {
     }
   };
 
-  const handleUpdateRow = async (id:string, updatedRow: FormData) => {
+  const handleUpdateRow = async (updatedRow: RowData) => {
     try {
-      const updated = await updateRow(id, updatedRow);
+      const updated = await updateRow(updatedRow);
       setRows(rows.map(row => (row._id === updated._id ? updated : row)));
       setShowModal(false);
       setModalData(null);

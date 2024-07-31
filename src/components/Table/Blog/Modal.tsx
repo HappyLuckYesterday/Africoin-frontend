@@ -1,14 +1,24 @@
 import React, { useState, useEffect } from 'react';
 import { RowData } from './types';
+import { UploadButton } from "@bytescale/upload-widget-react";
 
 interface ModalProps {
   isOpen: boolean;
   onClose: () => void;
-  onSubmit: (id: string, data: FormData) => void;
+  onSubmit: (data: RowData) => void;
   initialData?: RowData | null;
 }
 
 const emptyRow = {_id: '', image: '', title: '', body: '', view: 0, like: 0}
+
+// -----
+// Configuration:
+// https://www.bytescale.com/docs/upload-widget#configuration
+// -----
+const options = {
+  apiKey: "public_FW25c9bGB5kBiKV3jGmFxuSkDFyA", // This is your API key.
+  maxFileCount: 1
+};
 
 const Modal: React.FC<ModalProps> = ({ isOpen, onClose, onSubmit, initialData }) => {
   const [formData, setFormData] = useState<RowData>(emptyRow);
@@ -28,20 +38,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, onSubmit, initialData })
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const formData2 = new FormData();
-    formData2.append('title', formData.title);
-    formData2.append('body', formData.body);
-    if (image) {
-      formData2.append('image', image);
-    }
-    formData2.append('date', formData.like.toString());
-    formData2.append('views', formData.view.toString());
-    if (initialData?._id) {
-      onSubmit(initialData._id, formData2);
-    } else {
-      onSubmit("-1", formData2);
-    }
-    
+    onSubmit(formData);    
     setFormData(emptyRow);
   };
 
@@ -59,33 +56,25 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, onSubmit, initialData })
             <div className="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg lg:max-w-3xl sm:w-full">
               <form onSubmit={handleSubmit}>
                 <div className="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
-                  {/* <div className="mb-4">
-                    <label htmlFor="_id" className="block text-gray-700 text-sm font-bold mb-2">
-                      ID
-                    </label>
-                    <input
-                      type="text"
-                      id="_id"
-                      name="_id"
-                      value={formData._id}
-                      onChange={handleChange}
-                      className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                      disabled={!!initialData} // Disable ID input for updates
-                      required
-                    />
-                  </div> */}
                   <div className="mb-4">
                     <label htmlFor="image" className="block text-gray-700 text-sm font-bold mb-2">
                       Image
                     </label>
-                    <input
-                      type="file"
-                      id="image"
-                      name="image"
-                      onChange={(e) => setImage(e.target.files ? e.target.files[0] : null)}                      
-                      className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                      required
-                    />
+                    <div className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                      <UploadButton options={options}
+                        onComplete={files => {
+                          if(files.length == 0) return;
+                          setFormData({ ...formData, "image": files[0].fileUrl });
+                        }
+                      }
+                        >
+                        {({onClick}) =>
+                          <button onClick={onClick}>
+                            {formData.image ? formData.image : "Upload a file..."}
+                          </button>
+                        }
+                      </UploadButton>
+                    </div>
                   </div>
                   <div className="mb-4">
                     <label htmlFor="title" className="block text-gray-700 text-sm font-bold mb-2">

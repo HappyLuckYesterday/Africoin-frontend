@@ -1,13 +1,7 @@
 import { RowData } from './types';
 import axios from 'axios';
 
-const API_URL = 'https://e56f-2600-1f16-2b2-ef00-b24e-e6e0-e03c-eef4.ngrok-free.app/api/blog'; // Replace with your actual API URL
-
-export const getItems = () => axios.get(API_URL);
-export const getItemById = (id: string) => axios.get(`${API_URL}/${id}`);
-export const createItem = (item: FormData) => axios.post(API_URL, item);
-export const updateItem = (id: string, item: FormData) => axios.put(`${API_URL}/${id}`, item);
-export const deleteItem = (id: string) => axios.delete(`${API_URL}/${id}`);
+const API_URL = 'https://africoin-server.vercel.app//api/blog'; // Replace with your actual API URL
 
 export const fetchData = async (): Promise<RowData[]> => {
   try {
@@ -36,15 +30,16 @@ export const getBlog = async (id: string): Promise<RowData> => {
   }
 }
 
-export const addRow = async (newRow: FormData): Promise<RowData> => {
+export const addRow = async (newRow: RowData): Promise<RowData> => {
   console.log('newRow', newRow);
+  const { _id, ...rowWithoutId } = newRow; // remove _id since it will be generated on server
   try {
     const response = await fetch(`${API_URL}`, {
       method: 'POST',
-      // headers: {
-      //   'Content-Type': 'application/json',
-      // },
-      body: newRow,
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(rowWithoutId),
     });
     if (!response.ok) {
       throw new Error('Failed to add row');
@@ -56,15 +51,15 @@ export const addRow = async (newRow: FormData): Promise<RowData> => {
   }
 };
 
-export const updateRow = async (id: string, updatedRow: FormData): Promise<RowData> => {
+export const updateRow = async (updatedRow: RowData): Promise<RowData> => {
   console.log('updatedRow', updatedRow);
   try {
-    const response = await fetch(`${API_URL}/${id}`, {
+    const response = await fetch(`${API_URL}/${updatedRow._id}`, {
       method: 'PUT',
-      // headers: {
-      //   'Content-Type': 'application/json',
-      // },
-      body: updatedRow,
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(updatedRow),
     });
     if (!response.ok) {
       throw new Error('Failed to update row');

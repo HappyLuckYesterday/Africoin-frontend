@@ -50,3 +50,8 @@
     transform: rotate(360deg);
   }
 }
+
+.long-word-break {
+  overflow-wrap: break-word; /* This is the new name for the property */
+  word-wrap: break-all;     /* This is the old name for the property */
+}

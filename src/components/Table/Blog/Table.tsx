@@ -1,12 +1,13 @@
 import React from 'react';
 import { RowData } from './types';
+import './style.css';
 
 interface TableProps {
   rows: RowData[];
   sortConfig: { key: string; direction: 'ascending' | 'descending' | null };
   onSort: (key: string) => void;
   onDelete: (id: string) => void;
-  onUpdate: (id: string, row: FormData) => void;
+  onUpdate: (row: RowData) => void;
   onEdit: (row: RowData) => void;
 }
 
@@ -29,15 +30,15 @@ const Table: React.FC<TableProps> = ({
     <table className="min-w-full divide-y divide-gray-200">
       <thead className="bg-gray-50">
         <tr>
-          {/* <th
-            className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer"
-            onClick={() => onSort('id')}
+          <th
+            className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer max-w-sm"
+            onClick={() => onSort('image')}
           >
-            ID
-            {sortConfig && sortConfig.key === 'id' && (
+            ImageURL
+            {sortConfig && sortConfig.key === 'image' && (
               <span className={`ml-1 ${sortConfig.direction === 'ascending' ? 'arrow-up' : 'arrow-down'}`} />
             )}
-          </th> */}
+          </th>
           <th
             className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer"
             onClick={() => onSort('title')}
@@ -64,7 +65,7 @@ const Table: React.FC<TableProps> = ({
       <tbody className="bg-white divide-y divide-gray-200">
         {rows.map((row) => (
           <tr key={row._id} className="hover:bg-gray-100">
-            {/* <td className="px-6 py-4 whitespace-nowrap text-sm text-left font-medium text-gray-900">{row._id}</td> */}
+            <td className="px-6 py-4 text-sm text-left text-gray-900 min-w-sm long-word-break">{row.image}</td>
             <td className="px-6 py-4 text-sm text-left text-gray-500 min-w-sm">{row.title}</td>
             <td className="px-6 py-4 text-sm text-left text-gray-500 min-w-md">{row.body}</td>
             <td className="px-6 py-4 whitespace-nowrap text-sm text-left font-medium flex space-x-2">
