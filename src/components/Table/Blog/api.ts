@@ -1,7 +1,7 @@
 import { RowData } from './types';
 import axios from 'axios';
 
-const API_URL = 'https://8bbf-2600-1f16-2b2-ef00-b24e-e6e0-e03c-eef4.ngrok-free.app/api/blog'; // Replace with your actual API URL
+const API_URL = 'https://8bbf-2600-1f16-2b2-ef00-b24e-e6e0-e03c-eef4.ngrok-free.app:5000/api/blog'; // Replace with your actual API URL
 
 export const getItems = () => axios.get(API_URL);
 export const getItemById = (id: string) => axios.get(`${API_URL}/${id}`);

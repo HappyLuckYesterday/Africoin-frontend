@@ -1,6 +1,6 @@
 import { RowData } from './types';
 
-const API_URL = 'https://8bbf-2600-1f16-2b2-ef00-b24e-e6e0-e03c-eef4.ngrok-free.app/api'; // Replace with your actual API URL
+const API_URL = 'https://8bbf-2600-1f16-2b2-ef00-b24e-e6e0-e03c-eef4.ngrok-free.app:5000/api'; // Replace with your actual API URL
 
 export const fetchData = async (): Promise<RowData[]> => {
   try {

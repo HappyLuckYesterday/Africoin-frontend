@@ -188,7 +188,7 @@ const HomePage: React.FC = () => {
         <div className="flex justify-around flex-wrap mt-10">
           <BlogCard
             _id=""
-            image="./back1.png"
+            image="/uploads/1722394150567-back1.png"
             title={
               "Pioneering Eco-Responsible Blockchain in EU’s DigitalStrategy"
             }
@@ -197,7 +197,7 @@ const HomePage: React.FC = () => {
             like={0}
           />
           <BlogCard
-            image="./back2.png"
+            image="/uploads/1722394092550-back2.png"
             title={"Dive into the world of Greenercoin with our Testnet!"}
             content={""}
             _id=""
@@ -205,7 +205,7 @@ const HomePage: React.FC = () => {
             like={0}
           />
           <BlogCard
-            image="./back3.png"
+            image="/uploads/1722394163989-back3.png"
             title={
               "Pioneering Eco-Responsible Blockchain in EU’s DigitalStrategy"
             }
