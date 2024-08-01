@@ -1,6 +1,6 @@
 import { RowData } from './types';
 
-const API_URL = 'https://africoin-server.vercel.app//api'; // Replace with your actual API URL
+const API_URL = 'https://africoin-server.vercel.app/api'; // Replace with your actual API URL
 
 export const fetchData = async (): Promise<RowData[]> => {
   try {
@@ -8,6 +8,7 @@ export const fetchData = async (): Promise<RowData[]> => {
     if (!response) {
       throw new Error('Failed to fetch data');
     }
+    console.log("fetched data", response);
     return await response.json();
   } catch (error) {
     console.error('Error fetching data:', error);

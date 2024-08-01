@@ -40,19 +40,64 @@ const Table: React.FC<TableProps> = ({
           </th> */}
           <th
             className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer"
-            onClick={() => onSort('title')}
+            onClick={() => onSort('first_name')}
           >
-            Title
-            {sortConfig && sortConfig.key === 'title' && (
+            First Name
+            {sortConfig && sortConfig.key === 'first_name' && (
               <span className={`ml-1 ${sortConfig.direction === 'ascending' ? 'arrow-up' : 'arrow-down'}`} />
             )}
           </th>
           <th
             className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer"
-            onClick={() => onSort('title')}
+            onClick={() => onSort('last_name')}
           >
-            Body
-            {sortConfig && sortConfig.key === 'name' && (
+            Last Name
+            {sortConfig && sortConfig.key === 'last_name' && (
+              <span className={`ml-1 ${sortConfig.direction === 'ascending' ? 'arrow-up' : 'arrow-down'}`} />
+            )}
+          </th>
+          <th
+            className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer"
+            onClick={() => onSort('country')}
+          >
+            Country
+            {sortConfig && sortConfig.key === 'country' && (
+              <span className={`ml-1 ${sortConfig.direction === 'ascending' ? 'arrow-up' : 'arrow-down'}`} />
+            )}
+          </th>
+          <th
+            className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer"
+            onClick={() => onSort('organization')}
+          >
+            Organization
+            {sortConfig && sortConfig.key === 'organization' && (
+              <span className={`ml-1 ${sortConfig.direction === 'ascending' ? 'arrow-up' : 'arrow-down'}`} />
+            )}
+          </th>
+          <th
+            className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer"
+            onClick={() => onSort('phone')}
+          >
+            Phone
+            {sortConfig && sortConfig.key === 'phone' && (
+              <span className={`ml-1 ${sortConfig.direction === 'ascending' ? 'arrow-up' : 'arrow-down'}`} />
+            )}
+          </th>
+          <th
+            className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer"
+            onClick={() => onSort('email')}
+          >
+            Email
+            {sortConfig && sortConfig.key === 'email' && (
+              <span className={`ml-1 ${sortConfig.direction === 'ascending' ? 'arrow-up' : 'arrow-down'}`} />
+            )}
+          </th>
+          <th
+            className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer"
+            onClick={() => onSort('message')}
+          >
+            Message
+            {sortConfig && sortConfig.key === 'message' && (
               <span className={`ml-1 ${sortConfig.direction === 'ascending' ? 'arrow-up' : 'arrow-down'}`} />
             )}
           </th>

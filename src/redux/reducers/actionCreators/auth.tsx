@@ -8,7 +8,7 @@ axios.defaults.headers.post["Content-Type"] = "application/x-www-form-urlencoded
 export const loginUser = (userData: any, dispatch: any, navigate: any) => {
     console.log(userData);
     axios
-        .post("https://africoin-server.vercel.app//api/user/login", userData)
+        .post("https://africoin-server.vercel.app/api/user/login", userData)
         .then((res) => {
             localStorage.setItem("token", res.data.token);
             const user = jwtDecode(res.data.token);

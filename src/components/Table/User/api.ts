@@ -1,6 +1,6 @@
 import { RowData } from './types';
 
-const API_URL = 'https://africoin-server.vercel.app//api'; // Replace with your actual API URL
+const API_URL = 'https://africoin-server.vercel.app/api'; // Replace with your actual API URL
 
 export const fetchData = async (): Promise<RowData[]> => {
   try {

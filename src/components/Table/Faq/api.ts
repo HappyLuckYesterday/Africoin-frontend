@@ -1,8 +1,24 @@
 import { RowData } from './types';
 
-const API_URL = 'https://africoin-server.vercel.app//api'; // Replace with your actual API URL
+const API_URL = 'https://africoin-server.vercel.app/api'; // Replace with your actual API URL
 
 export const fetchData = async (): Promise<RowData[]> => {
+//   return [{
+//     _id: '1',
+//     title: 'Question 1',
+//     body: 'lorem ipsum dolor sit amet, consectetur adipiscing elit. lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+//   },
+//   {
+//     _id: '2',
+//     title: 'Question 2',
+//     body: 'lorem ipsum dolor sit amet, consectetur adipiscing elit. lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+//   },
+//   {
+//     _id: '3',
+//     title: 'Question 3 lorem ipsum dolor sit amet, consectetur adipiscing elit. lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+//     body: 'lorem ipsum dolor sit amet, consectetur adipiscing elit. lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+//   }
+// ];
   try {
     const response = await fetch(`${API_URL}/faq/list`);
     if (!response) {

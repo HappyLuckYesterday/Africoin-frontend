@@ -37,7 +37,7 @@ const FAQSection: React.FC = () => {
             <div className="w-full text-left font-poppins font-bold text-[21px] items-center hover:text-[#000]">
               <div className="flex relative">
                 <p className="long-word-break">{qa.title}</p>
-                <div className="float-right r-0 ml-auto">
+                <div className="float-right r-0 px-2 ml-auto">
                   <ChevronDownIcon
                     className={`text-right w-6 h-6 ${activeIndex === index ? "rotate-180" : ""
                       }`}
