@@ -161,6 +161,21 @@ const Header = () => {
                 FAQ
               </Link>
             </div>
+            <div className="flex flex-col items-center">
+              <img
+                src={LeafCap}
+                alt="leafCap"
+                className={`opacity-0 ${isCurrentPage("/admin/contact") && "opacity-100"}`}
+              />
+              <Link
+                to="/admin/contact"
+                className={`${isCurrentPage("/admin/contact") ? "text-green-500" : "text-black"
+                  } text-[18px] font-bold font-poppins transition ease-in-out hover:bg-gray-200 rounded-md px-2 py-1`}
+              >
+                {" "}
+                Contact
+              </Link>
+            </div>
           </PopoverGroup>
         }
         </div>
@@ -402,6 +417,19 @@ const Header = () => {
                   >
                     {" "}
                     FAQ
+                  </Link>
+                  <Link
+                    to="/admin/contact"
+                    className={`${isCurrentPage("/admin/contact") ? " text-green-500" : "text-black "}
+                      text-[18px] font-poppins block -mx-3 py-2 pl-10
+                      rounded-md 
+                      hover:bg-green-600 hover:text-white
+                      transition-colors md:duration-200
+                      border-b-2
+                      `}
+                  >
+                    {" "}
+                    Contact
                   </Link>
                 </div>
                 <div className="py-6" onClick={() => setMobileMenuOpen(false)}>

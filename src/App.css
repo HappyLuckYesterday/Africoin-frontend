@@ -12,7 +12,13 @@
   text-align: center;
   background-color: #f7f7f7;
   overflow-x: hidden;
-  overflow-y: hidden;
+  height: 100%;
+}
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 .App-logo {

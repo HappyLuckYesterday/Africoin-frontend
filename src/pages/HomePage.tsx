@@ -26,8 +26,8 @@ import BlogCard from "../components/Cards/BlogCard";
 
 const HomePage: React.FC = () => {
   return (
-    <div className="relative">
-      <div className="container">
+    <div className="relative px-5">
+      <div className="">
         <div className="mt-8 sm:mt-16 md:mt-24 lg:mt-28 xl:mt-32">
           <p className="text-[24px] sm:text-[48px] md:text-[56px] lg:text-[64px] xl:text-[72px] font-poppins">
             Transforming Carbon Credits in Africa
@@ -46,7 +46,7 @@ const HomePage: React.FC = () => {
           </div>
         </div>
       </div>
-      <div className="container relative h-full">
+      <div className="relative h-full">
         <img src={GreenWorld} alt="Green World" className=" top-0 mx-auto" />
         <p className=" bottom-0 text-[16px] sm:text-[28px] md:text-[32px] font-poppins text-center px-[10%]">
           By simplifying green purchases with state-of-the-art assets
@@ -55,7 +55,7 @@ const HomePage: React.FC = () => {
           transactions globally.
         </p>
       </div>
-      <div className="container h-full mt-16 xl:mt-20">
+      <div className=" h-full mt-16 xl:mt-20">
         <p className="text-center text-[32px] sm:text-[48px] md:text-[56px] lg:text-[64px] xl:text-[72px] font-poppins leading-none">
           Unlocking freedom with
         </p>
@@ -100,7 +100,7 @@ const HomePage: React.FC = () => {
           <BlueLinkButton2 text="EXPLORE WALLET" link="/" />
         </div>
       </div> */}
-      <div className="container mt-20">
+      <div className=" mt-20">
         <p className="text-left text-[32px] sm:text-[48px] md:text-[56px] lg:text-[64px] xl:text-[72px] font-poppins">
           Who benifits from <b className="text-green-500">Africoin</b>
         </p>
@@ -144,7 +144,7 @@ const HomePage: React.FC = () => {
           </div>
         </div>
       </div>
-      <div className="relative container lg:mt-10 lg:mt-20 flex justify-around flex-wrap">
+      <div className="relative lg:mt-10 lg:mt-20 flex justify-around flex-wrap">
         <div className="relative p-10 flex flex-col justify-between items-left">
           <p className="text-left text-[45px] md:text-[64px] xl:text-[72px] font-poppins">
             Roadmap
@@ -181,7 +181,7 @@ const HomePage: React.FC = () => {
           />
         </div>
       </div>
-      <div className="container h-full mt-20 lg:mt-40">
+      <div className=" h-full mt-20 lg:mt-40">
         <p className="text-left text-[32px] sm:text-[48px] md:text-[56px] lg:text-[64px] xl:text-[72px] font-poppins leading-none">
           Blog & <b className=" text-[#2A9646]">News</b>
         </p>
@@ -216,7 +216,7 @@ const HomePage: React.FC = () => {
           />
         </div>
       </div>
-      <div className="relative container mt-20 lg:mt-60">
+      <div className="relative mt-20 lg:mt-60">
         <div className="border-solid border-2 rounded-[50px] p-10 lg:p-20">
           <p className="text-[45px] md:text-[56px] lg:text-[64px] xl:text-[72px] leading-none mb-5">
             Let's start minting!
@@ -249,7 +249,7 @@ const HomePage: React.FC = () => {
           className="absolute left-[5%] top-[-9%] w-[22%] hidden sm:shown md:w-auto md:left-[50px] sm:top-[-70px]"
         />
       </div>
-      <div className="container mt-20">
+      <div className=" mt-20">
         <p className="text-[45px] md:text-[64px] xl:text-[72px] font-poppins">
           Our Team
         </p>
@@ -300,7 +300,7 @@ const HomePage: React.FC = () => {
           />
         </div>
       </div>
-      <div className="mt-[100px] lg:mt-[200px] container relative">
+      <div className="mt-[100px] lg:mt-[200px] relative">
         <ContactForm />
       </div>
     </div>

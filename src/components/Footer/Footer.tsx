@@ -15,7 +15,7 @@ const Footer = () => {
     return location.pathname === path;
   };
   return (
-    <div className="static inset-x-0 bottom-0 container">
+    <div className="static inset-x-0 bottom-0 w-full max-w-7xl mx-auto">
       <div className="flex justify-between flex-wrap mt-10 items-center text-center">
         <div className={`${location.pathname === "/swap" && "hidden"}`}>
           <Link to="" className="hidden lg:flex lg:h-20 lg:w-auto mb-5">
@@ -107,6 +107,15 @@ const Footer = () => {
             >
               {" "}
               FAQ
+            </Link>
+            <Link
+              to="/admin/contact"
+              className={`${
+                isCurrentPage("/admin/contact") ? "text-green-500" : "text-black"
+              } text-[18px] font-bold font-poppins block`}
+            >
+              {" "}
+              Contact
             </Link>
           </div>  
         }

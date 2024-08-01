@@ -122,27 +122,25 @@ const BlogPage = () => {
 
   return (
     <div>
-      <div className="container">
-        <h1 className="text-[72px] font-bold">Blog</h1>
-        <div className="flex justify-around flex-wrap gap-12 mt-10 max-w-[1200px] mx-auto">
-          {blogs.length == 0 && 
-            <div className="flex flex-col justify-center items-center my-25 py-10">
-              <DotLoader />
-              <p className="text-2xl mt-20">Loading...</p>
-            </div>
-          }
-          {blogs.map((blog, index) => (
-            <BlogCard
-              _id={blog._id}
-              key={index}
-              image={blog.image}
-              title={blog.title}
-              content={blog.body}
-              view={blog.view}
-              like={blog.like}
-            />
-          ))}
-        </div>
+      <h1 className="text-[72px] font-bold">Blog</h1>
+      <div className="flex justify-around flex-wrap gap-12 mt-10 max-w-[1200px] mx-auto">
+        {blogs.length == 0 && 
+          <div className="flex flex-col justify-center items-center my-25 py-10">
+            <DotLoader />
+            <p className="text-2xl mt-20">Loading...</p>
+          </div>
+        }
+        {blogs.map((blog, index) => (
+          <BlogCard
+            _id={blog._id}
+            key={index}
+            image={blog.image}
+            title={blog.title}
+            content={blog.body}
+            view={blog.view}
+            like={blog.like}
+          />
+        ))}
       </div>
     </div>
   );

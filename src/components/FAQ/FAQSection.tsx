@@ -20,7 +20,7 @@ const FAQSection: React.FC = () => {
   };
 
   return (
-    <div className="mt-10 border-solid rounded-[50px] ">
+    <div className="mt-10 border-solid rounded-[50px]">
       <div className="space-y-5">
         {questions.length == 0 && 
           <div className="flex flex-col justify-center items-center my-25 py-10">

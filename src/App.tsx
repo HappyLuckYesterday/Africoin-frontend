@@ -25,6 +25,7 @@ import AdminUsersPage from "./pages/AdminUsersPage";
 import Logout from "./pages/Logout";
 import BlogViewPage from "./pages/BlogViewPage";
 import { useEffect, useState } from "react";
+import AdminContactsPage from "./pages/AdminContactsPage";
 
 if (localStorage.token) {
   const token = localStorage.token;
@@ -41,35 +42,38 @@ function App() {
   const myauth = useSelector((state: any) => state.auth);
 
   return (
-    <div className="App">
+    <div className="App min-h-screen h-full flex flex-col">
       <Header />
-      <Routes>
-        {!myauth.isAuthenticated && (
-          <>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/login" element={<LoginPage />} />
-            <Route path="/register" element={<RegisterPage />} />
-            <Route path="/home" element={<HomePage />} />
-            <Route path="/blog" element={<BlogPage />} />
-            <Route path="/blog/:id" element={<BlogViewPage />} />
-            <Route path="/swap" element={<SwapPage />} />
-            <Route path="/faq" element={<FAQPage />} />
-            <Route path="/contact" element={<ContactPage />} />
-            <Route path="/example" element={<LuxuryHotels />} />
-            <Route path="*" element={<Navigate to="/" />} />
-          </>
-        )}
-        {myauth.isAuthenticated && (
-          <>
-            <Route path="/" element={<AdminUsersPage />} />
-            <Route path="/admin/faq" element={<AdminFAQPage />} />
-            <Route path="/admin/blog" element={<AdminBlogPage />} />
-            <Route path="/admin/user" element={<AdminUsersPage />} />
-            <Route path="/logout" element={<Logout />} />
-            <Route path="*" element={<Navigate to="/" />} />
-          </>
-        )}
-      </Routes>
+      <main className="flex-1 w-full max-w-7xl mx-auto">
+        <Routes>
+          {!myauth.isAuthenticated && (
+            <>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/login" element={<LoginPage />} />
+              <Route path="/register" element={<RegisterPage />} />
+              <Route path="/home" element={<HomePage />} />
+              <Route path="/blog" element={<BlogPage />} />
+              <Route path="/blog/:id" element={<BlogViewPage />} />
+              <Route path="/swap" element={<SwapPage />} />
+              <Route path="/faq" element={<FAQPage />} />
+              <Route path="/contact" element={<ContactPage />} />
+              <Route path="/example" element={<LuxuryHotels />} />
+              <Route path="*" element={<Navigate to="/" />} />
+            </>
+          )}
+          {myauth.isAuthenticated && (
+            <>
+              <Route path="/" element={<AdminUsersPage />} />
+              <Route path="/admin/faq" element={<AdminFAQPage />} />
+              <Route path="/admin/blog" element={<AdminBlogPage />} />
+              <Route path="/admin/user" element={<AdminUsersPage />} />
+              <Route path="/admin/contact" element={<AdminContactsPage />} />
+              <Route path="/logout" element={<Logout />} />
+              <Route path="*" element={<Navigate to="/" />} />
+            </>
+          )}
+        </Routes>  
+      </main>
       <Footer />
     </div>
   );
