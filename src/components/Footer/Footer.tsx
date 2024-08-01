@@ -5,6 +5,7 @@ import IconDiscord from "../../assests/IconDiscord.png";
 import IconInstagram from "../../assests/IconInstagram.png";
 import IconTwitter from "../../assests/IconTwitter.png";
 import IconLinkedin from "../../assests/IconLinkedin.png";
+import "./style.css"
 
 const Footer = () => {
   const location = useLocation();
@@ -32,7 +33,7 @@ const Footer = () => {
               to="/"
               className={`${
                 isCurrentPage("/") ? "text-green-500" : "text-black"
-              } text-[18px] font-bold font-poppins block`}
+              } text-[18px] font-bold font-poppins block hover-effect`}
             >
               {" "}
               Home
@@ -41,7 +42,7 @@ const Footer = () => {
               to="/swap"
               className={`${
                 isCurrentPage("/swap") ? "text-green-500" : "text-black"
-              } text-[18px] font-bold font-poppins block`}
+              } text-[18px] font-bold font-poppins block hover-effect`}
             >
               {" "}
               Swap
@@ -50,7 +51,7 @@ const Footer = () => {
               to="/blog"
               className={`${
                 isCurrentPage("/blog") ? "text-green-500" : "text-black"
-              } text-[18px] font-bold font-poppins block`}
+              } text-[18px] font-bold font-poppins block hover-effect`}
             >
               {" "}
               Blog
@@ -59,7 +60,7 @@ const Footer = () => {
               to="/faq"
               className={`${
                 isCurrentPage("/faq") ? "text-green-500" : "text-black"
-              } text-[18px] font-bold font-poppins block`}
+              } text-[18px] font-bold font-poppins block hover-effect`}
             >
               {" "}
               FAQ
@@ -68,7 +69,7 @@ const Footer = () => {
               to="/contact"
               className={`${
                 isCurrentPage("/contact") ? "text-green-500" : "text-black"
-              } text-[18px] font-bold font-poppins block`}
+              } text-[18px] font-bold font-poppins block hover-effect`}
             >
               {" "}
               Contact
@@ -85,7 +86,7 @@ const Footer = () => {
               to="/admin/user"
               className={`${
                 isCurrentPage("/admin/user") ? "text-green-500" : "text-black"
-              } text-[18px] font-bold font-poppins block`}
+              } text-[18px] font-bold font-poppins block hover-effect`}
             >
               {" "}
               User
@@ -94,7 +95,7 @@ const Footer = () => {
               to="/admin/blog"
               className={`${
                 isCurrentPage("/admin/blog") ? "text-green-500" : "text-black"
-              } text-[18px] font-bold font-poppins block`}
+              } text-[18px] font-bold font-poppins block hover-effect`}
             >
               {" "}
               Blog
@@ -103,7 +104,7 @@ const Footer = () => {
               to="/admin/faq"
               className={`${
                 isCurrentPage("/admin/faq") ? "text-green-500" : "text-black"
-              } text-[18px] font-bold font-poppins block`}
+              } text-[18px] font-bold font-poppins block hover-effect`}
             >
               {" "}
               FAQ
@@ -112,7 +113,7 @@ const Footer = () => {
               to="/admin/contact"
               className={`${
                 isCurrentPage("/admin/contact") ? "text-green-500" : "text-black"
-              } text-[18px] font-bold font-poppins block`}
+              } text-[18px] font-bold font-poppins block hover-effect`}
             >
               {" "}
               Contact
@@ -125,16 +126,16 @@ const Footer = () => {
             location.pathname === "/swap" && "mx-auto mt-0"
           }`}
         >
-          <Link to="" className="mx-2">
+          <Link to="" className="mx-2 link-hover-effect">
             <img src={IconTwitter} alt="Twitter" />
           </Link>
-          <Link to="" className="mx-2">
+          <Link to="" className="mx-2 link-hover-effect">
             <img src={IconDiscord} alt="Discord" />
           </Link>
-          <Link to="" className="mx-2">
+          <Link to="" className="mx-2 link-hover-effect">
             <img src={IconInstagram} alt="Instagram" />
           </Link>
-          <Link to="" className="mx-2">
+          <Link to="" className="mx-2 link-hover-effect">
             <img src={IconLinkedin} alt="Linkedin" />
           </Link>
         </div>

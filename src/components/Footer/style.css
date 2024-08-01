@@ -1,0 +1,15 @@
+.link-hover-effect img {
+    transition: transform 0.3s ease;
+  }
+  
+.link-hover-effect:hover img {
+    transform: scale(1.2);
+}
+
+.hover-effect {
+  transition: color 0.3s ease;
+}
+
+.hover-effect:hover {
+  color: rgb(34, 197, 94); /* Change to your desired hover color */
+}
