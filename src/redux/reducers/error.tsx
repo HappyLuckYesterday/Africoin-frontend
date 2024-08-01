@@ -1,4 +1,4 @@
-import { GET_ERRORS } from "./actionTypes/types";
+import { GET_ERRORS, REMOVE_ERRORS } from "./actionTypes/types";
 
 interface ErrorState {
     errors: Object,
@@ -14,6 +14,11 @@ const errorReducer = (state: ErrorState = initialState, action: any): ErrorState
             return {
                 ...state,
                 errors: action.payload,
+            };
+        case REMOVE_ERRORS:
+            return {
+                ...state,
+                errors: {},
             };
         default:
             return state;

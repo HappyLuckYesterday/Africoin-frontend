@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { ArrowUpRightIcon as ArrowUpRightOutline } from "@heroicons/react/24/outline";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import { BarLoader } from "react-spinners";
 
 interface FormData {
     firstname: string;
@@ -203,11 +204,11 @@ const RegisterPage = () => {
                     Register
                     <ArrowUpRightOutline className="w-6 h-6 inline pl-2" />
                 </button>
-                {/* {submitted && (
-                    <p className="text-green-500 text-sm pt-4 text-center">
-                        Form submitted successfully!
-                    </p>
-                )} */}
+                {submitted && (
+                    <div className="flex justify-center pt-5">
+                        <BarLoader width={160} />
+                    </div>
+                )}
                 <div className="flex justify-center my-5">
                     <p className="text-gray-600 pr-5">Already User?</p>
                     <Link to="/login" className="font-bold">Login here.</Link>

@@ -84,7 +84,7 @@ const AdminContactPage: React.FC = () => {
   return (
     <div className='mx-10'>
       <div>
-        <h1 className='text-[48px]'>FAQ Table</h1>
+        <h1 className='text-[48px]'>Contact Table</h1>
       </div>
       <div className='flex'>
         <button className='justify-end px-4 py-2 border border-gray-300 text-sm font-medium rounded-md transition bg-white text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500'

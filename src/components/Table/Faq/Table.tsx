@@ -1,5 +1,6 @@
 import React from 'react';
 import { RowData } from './types';
+import { DotLoader } from 'react-spinners';
 
 interface TableProps {
   rows: RowData[];
@@ -62,6 +63,14 @@ const Table: React.FC<TableProps> = ({
         </tr>
       </thead>
       <tbody className="bg-white divide-y divide-gray-200">
+        {rows.length == 0 && 
+          <td colSpan={3} className="py-10">
+            <div className="flex flex-col justify-center items-center w-full h-full">
+              <DotLoader />
+              <p className="text-2xl mt-4">Loading...</p>
+            </div>
+          </td>
+        }
         {rows.map((row) => (
           <tr key={row._id} className="hover:bg-gray-100">
             {/* <td className="px-6 py-4 whitespace-nowrap text-sm text-left font-medium text-gray-900">{row._id}</td> */}
