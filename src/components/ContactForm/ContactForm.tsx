@@ -1,8 +1,13 @@
 // src/components/SubscriptionForm.tsx
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { ArrowUpRightIcon as ArrowUpRightOutline } from "@heroicons/react/24/outline";
 import axios from "axios";
 import { RowData } from "../Table/Contacts/types";
+import { useDispatch, useSelector } from "react-redux";
+import { AppDispatch } from "../../redux/store";
+import { removeErrors } from "../../redux/reducers/actionCreators/error";
+import Popup from "../Popup/Popup";
+import { DotLoader } from "react-spinners";
 
 const ContactForm: React.FC = () => {
 
@@ -19,6 +24,12 @@ const ContactForm: React.FC = () => {
 
   const [errors, setErrors] = useState<Partial<RowData>>({});
   const [submitted, setSubmitted] = useState(false);
+
+  const [showPopupSuccess, setShowPopupSuccess] = useState(false);
+    const [showPopupError, setShowPopupError] = useState(false);
+    const [errorMessage, setErrorMessage] = useState<string | null>(null);
+    const store = useSelector((state: any) => state.errors);
+    const dispatch = useDispatch<AppDispatch>();
 
   const validate = (): boolean => {
     const newErrors: Partial<RowData> = {};
@@ -74,13 +85,35 @@ const ContactForm: React.FC = () => {
 
     if (validate()) {
       console.log("Form data:", formData);
+
       setSubmitted(true);
-      axios.post("https://africoin-server.vercel.app/api/contact", formData).then((res) => {
+      const { _id, ...newformData } = formData;
+      axios.post("https://africoin-server.vercel.app/api/contact", newformData).then((res) => {
         console.log(res.data);
+        setShowPopupSuccess(true);
       })
-        .catch((err) => console.log(err));
+        .catch((err) => {
+          console.log(err);
+          setErrorMessage(err.response.data.error || err.response.data.message);
+          setShowPopupError(true);
+    });
     }
   };
+
+  useEffect(() => {
+    if (Object.keys(store.errors).length > 0) {
+        setShowPopupError(true);
+        setSubmitted(false);
+    }
+}, [store.errors]);
+
+const handleClose = () => {
+    setShowPopupSuccess(false);
+    setShowPopupError(false);
+    setSubmitted(false);
+    setErrorMessage(null);
+    removeErrors([], dispatch);
+};
 
   return (
     <div className="bg-leaf-pattern bg-cover p-10 rounded-[50px] shadow-md flex flex-col items-center">
@@ -99,14 +132,14 @@ const ContactForm: React.FC = () => {
         <div className="flex flex-wrap pb-6">
           <div className="w-full md:w-1/2 pr-3 pb-6 md:pb-0">
             <label
-              htmlFor="firstname"
+              htmlFor="first_name"
               className="block text-gray-700 font-bold pb-2"
             >
               First Name
             </label>
             <input
-              id="firstname"
-              name="firstname"
+              id="first_name"
+              name="first_name"
               type="text"
               className={`w-full p-3 border rounded-lg ${errors.first_name ? "border-red-500" : "border-gray-300"
                 }`}
@@ -119,14 +152,14 @@ const ContactForm: React.FC = () => {
           </div>
           <div className="w-full md:w-1/2 pr-3 pb-6 md:pb-0">
             <label
-              htmlFor="lastname"
+              htmlFor="last_name"
               className="block text-gray-700 font-bold pb-2"
             >
               Last Name
             </label>
             <input
-              id="lastname"
-              name="lastname"
+              id="last_name"
+              name="last_name"
               type="email"
               className={`w-full p-3 border rounded-lg ${errors.last_name ? "border-red-500" : "border-gray-300"
                 }`}
@@ -248,12 +281,22 @@ const ContactForm: React.FC = () => {
           Submit
           <ArrowUpRightOutline className="w-6 h-6 inline pl-2" />
         </button>
-        {submitted && (
+        {/* {submitted && (
           <p className="text-green-500 text-sm pt-4 text-center">
             Form submitted successfully!
           </p>
-        )}
+        )} */}
       </form>
+      {submitted && (
+          <div className="fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-50">
+              <div className="flex flex-col justify-center bg-none p-6 rounded w-[320px] rounded-[20px]">
+                  <div className="mx-auto"><DotLoader /></div>
+                  <p className="text-2xl mt-4 text-white">Please wait...</p>
+              </div>
+        </div>
+      )}
+      {showPopupError && <Popup title="Error" message={errorMessage || 'An error occurred'} onClose={handleClose} />}
+      {showPopupSuccess && <Popup title="Success" message={'Subscribed Successfully.'} onClose={handleClose} />}
     </div>
   );
 };

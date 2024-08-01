@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch } from '../redux/store';
 import { loginUser } from '../redux/reducers/actionCreators/auth';
-import { BarLoader } from "react-spinners";
+import { BarLoader, DotLoader } from "react-spinners";
 import { removeErrors } from "../redux/reducers/actionCreators/error";
 import Popup from "../components/Popup/Popup";
 
@@ -66,13 +66,13 @@ const LoginPage = () => {
     useEffect(() => {
         if (Object.keys(store.errors).length > 0) {
             setShowPopup(true);
+            setSubmitted(false);
         }
     }, [store.errors]);
 
     const handleClose = () => {
         setShowPopup(false);
         removeErrors([], dispatch);
-        setSubmitted(false);
     };
     
     return (
@@ -137,17 +137,25 @@ const LoginPage = () => {
                     Login
                     <ArrowUpRightOutline className="w-6 h-6 inline pl-2" />
                 </button>
-                {submitted && (
+                {/* {submitted && (
                     <div className="flex justify-center pt-5">
                         <BarLoader width={160} />
                     </div>
-                )}
+                )} */}
                 <div className="flex justify-center my-5">
                     <p className="text-gray-600 pr-5">New here?</p>
                     <Link to="/register" className="font-bold">Register here.</Link>
                 </div>
             </form>
-            {showPopup && <Popup message={store.errors.message || 'An error occurred'} onClose={handleClose} />}
+            {submitted && (
+                <div className="fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-50">
+                    <div className="flex flex-col justify-center bg-none p-6 rounded w-[320px] rounded-[20px]">
+                        <div className="mx-auto"><DotLoader /></div>
+                        <p className="text-2xl mt-4 text-white">Please wait...</p>
+                    </div>
+              </div>
+            )}
+            {showPopup && <Popup title="Error" message={store.errors.message || 'An error occurred'} onClose={handleClose} />}
         </div>
     );
 }
