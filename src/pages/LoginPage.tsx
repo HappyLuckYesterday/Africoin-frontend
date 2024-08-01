@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { ArrowUpRightIcon as ArrowUpRightOutline } from "@heroicons/react/24/outline";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux';
@@ -6,6 +6,7 @@ import { AppDispatch } from '../redux/store';
 import { loginUser } from '../redux/reducers/actionCreators/auth';
 import { BarLoader } from "react-spinners";
 import { removeErrors } from "../redux/reducers/actionCreators/error";
+import Popup from "../components/Popup/Popup";
 
 interface FormData {
     email: string;
@@ -19,10 +20,9 @@ const LoginPage = () => {
     });
     const [errors, setErrors] = useState<Partial<FormData>>({});
     const [submitted, setSubmitted] = useState(false);
-    
+    const [showPopup, setShowPopup] = useState(false);
     const store = useSelector((state: any) => state.errors);
     console.log("0", store.errors, submitted);
-    if(store.errors && submitted) setSubmitted(false);
 
     const navigate = useNavigate();
     const dispatch = useDispatch<AppDispatch>();
@@ -63,6 +63,18 @@ const LoginPage = () => {
         }
     };
 
+    useEffect(() => {
+        if (Object.keys(store.errors).length > 0) {
+            setShowPopup(true);
+        }
+    }, [store.errors]);
+
+    const handleClose = () => {
+        setShowPopup(false);
+        removeErrors([], dispatch);
+        setSubmitted(false);
+    };
+    
     return (
         <div className="p-10 flex flex-col items-center">
             <h1 className="font-poppins text-[32px] sm:text-[48px] md:text-[56px] lg:text-[64px] xl:text-[72px] text-left">
@@ -130,16 +142,12 @@ const LoginPage = () => {
                         <BarLoader width={160} />
                     </div>
                 )}
-                {store.errors && (
-                    <p className="text-red-700 pt-5">
-                        {store.errors.message}
-                    </p>
-                )}
                 <div className="flex justify-center my-5">
                     <p className="text-gray-600 pr-5">New here?</p>
                     <Link to="/register" className="font-bold">Register here.</Link>
                 </div>
             </form>
+            {showPopup && <Popup message={store.errors.message || 'An error occurred'} onClose={handleClose} />}
         </div>
     );
 }
