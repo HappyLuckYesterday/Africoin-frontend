@@ -1,5 +1,3 @@
-import { HandThumbUpIcon } from "@heroicons/react/24/solid";
-import { ArrowUpRightIcon } from "@heroicons/react/24/outline";
 import { useNavigate } from "react-router-dom";
 
 interface BlogCardProps {
@@ -11,21 +9,35 @@ interface BlogCardProps {
   view: number;
 }
 
-const BlogCard: React.FC<BlogCardProps> = ({ _id, image, title, content, like, view }) => {
+const BlogCard: React.FC<BlogCardProps> = ({
+  _id,
+  image,
+  title,
+  content,
+  like,
+  view,
+}) => {
   const navigate = useNavigate();
   return (
-    <div className="relative h-[500px] w-[320px] rounded-[30px] mb-10 cursor-pointer hover:shadow-[0px_0px_20px_gray]" onClick={() => navigate(`/blog/${_id}`)}>
-      <img src={image} alt="back" className="w-full h-full rounded-[30px]" />
-      <div
+    <div
+      className="relative h-[450px] w-[320px] rounded-[30px] mb-10 cursor-pointer hover:shadow-[0px_0px_20px_gray] border-2 border-solid border-[#7f7f7f]"
+      onClick={() => navigate(`/blog/${_id}`)}
+    >
+      <img
+        src={image}
+        alt="back"
+        className="w-full h-1/2 rounded-tl-[30px] rounded-tr-[30px] rounded-b-none"
+      />
+      {/* <div
         style={{
           background:
             "linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000002 100%)",
         }}
-        className="absolute w-full h-[80%] left-0 top-[20%] rounded-[30px]"
-      ></div>
-      <ArrowUpRightIcon className="absolute right-7 top-7 text-white w-9 h-9" />
-      <div className="absolute bottom-0 left-0 p-5">
-        <p className="text-[24px] font-poppins text-white text-left mb-[50px] leading-none">
+        className="absolute w-full h-[50%] left-0 top-[0%] rounded-[30px]"
+      ></div> */}
+      {/* <ArrowUpRightIcon className="absolute right-7 top-7 text-white w-9 h-9" /> */}
+      <div className="absolute bottom-0 left-0 p-5 bg-[#ffffff] w-full h-[50%] rounded-br-[30px] rounded-bl-[30px]">
+        <p className="text-[24px] font-poppins text-black text-left mb-[50px] leading-none">
           {title}
         </p>
         <div className="flex justify-between items-center text-[16px]">

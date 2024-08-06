@@ -10,7 +10,6 @@ import Popup from "../Popup/Popup";
 import { DotLoader } from "react-spinners";
 
 const ContactForm: React.FC = () => {
-
   const [formData, setFormData] = useState<RowData>({
     _id: "",
     first_name: "",
@@ -26,10 +25,10 @@ const ContactForm: React.FC = () => {
   const [submitted, setSubmitted] = useState(false);
 
   const [showPopupSuccess, setShowPopupSuccess] = useState(false);
-    const [showPopupError, setShowPopupError] = useState(false);
-    const [errorMessage, setErrorMessage] = useState<string | null>(null);
-    const store = useSelector((state: any) => state.errors);
-    const dispatch = useDispatch<AppDispatch>();
+  const [showPopupError, setShowPopupError] = useState(false);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const store = useSelector((state: any) => state.errors);
+  const dispatch = useDispatch<AppDispatch>();
 
   const validate = (): boolean => {
     const newErrors: Partial<RowData> = {};
@@ -88,32 +87,34 @@ const ContactForm: React.FC = () => {
 
       setSubmitted(true);
       const { _id, ...newformData } = formData;
-      axios.post("https://africoin-server.vercel.app/api/contact", newformData).then((res) => {
-        console.log(res.data);
-        setShowPopupSuccess(true);
-      })
+      axios
+        .post("http://localhost/api/contact", newformData)
+        .then((res) => {
+          console.log(res.data);
+          setShowPopupSuccess(true);
+        })
         .catch((err) => {
           console.log(err);
           setErrorMessage(err.response.data.error || err.response.data.message);
           setShowPopupError(true);
-    });
+        });
     }
   };
 
   useEffect(() => {
     if (Object.keys(store.errors).length > 0) {
-        setShowPopupError(true);
-        setSubmitted(false);
+      setShowPopupError(true);
+      setSubmitted(false);
     }
-}, [store.errors]);
+  }, [store.errors]);
 
-const handleClose = () => {
+  const handleClose = () => {
     setShowPopupSuccess(false);
     setShowPopupError(false);
     setSubmitted(false);
     setErrorMessage(null);
     removeErrors([], dispatch);
-};
+  };
 
   return (
     <div className="bg-leaf-pattern bg-cover p-10 rounded-[50px] shadow-md flex flex-col items-center">
@@ -141,8 +142,9 @@ const handleClose = () => {
               id="first_name"
               name="first_name"
               type="text"
-              className={`w-full p-3 border rounded-lg ${errors.first_name ? "border-red-500" : "border-gray-300"
-                }`}
+              className={`w-full p-3 border rounded-lg ${
+                errors.first_name ? "border-red-500" : "border-gray-300"
+              }`}
               value={formData.first_name}
               onChange={handleChange}
             />
@@ -161,8 +163,9 @@ const handleClose = () => {
               id="last_name"
               name="last_name"
               type="email"
-              className={`w-full p-3 border rounded-lg ${errors.last_name ? "border-red-500" : "border-gray-300"
-                }`}
+              className={`w-full p-3 border rounded-lg ${
+                errors.last_name ? "border-red-500" : "border-gray-300"
+              }`}
               value={formData.last_name}
               onChange={handleChange}
             />
@@ -183,8 +186,9 @@ const handleClose = () => {
               id="country"
               name="country"
               type="text"
-              className={`w-full p-3 border rounded-lg ${errors.country ? "border-red-500" : "border-gray-300"
-                }`}
+              className={`w-full p-3 border rounded-lg ${
+                errors.country ? "border-red-500" : "border-gray-300"
+              }`}
               value={formData.country}
               onChange={handleChange}
             />
@@ -203,8 +207,9 @@ const handleClose = () => {
               id="organization"
               name="organization"
               type="email"
-              className={`w-full p-3 border rounded-lg ${errors.organization ? "border-red-500" : "border-gray-300"
-                }`}
+              className={`w-full p-3 border rounded-lg ${
+                errors.organization ? "border-red-500" : "border-gray-300"
+              }`}
               value={formData.organization}
               onChange={handleChange}
             />
@@ -225,8 +230,9 @@ const handleClose = () => {
               id="phone"
               name="phone"
               type="text"
-              className={`w-full p-3 border rounded-lg ${errors.phone ? "border-red-500" : "border-gray-300"
-                }`}
+              className={`w-full p-3 border rounded-lg ${
+                errors.phone ? "border-red-500" : "border-gray-300"
+              }`}
               value={formData.phone}
               onChange={handleChange}
             />
@@ -245,8 +251,9 @@ const handleClose = () => {
               id="email"
               name="email"
               type="email"
-              className={`w-full p-3 border rounded-lg ${errors.email ? "border-red-500" : "border-gray-300"
-                }`}
+              className={`w-full p-3 border rounded-lg ${
+                errors.email ? "border-red-500" : "border-gray-300"
+              }`}
               value={formData.email}
               onChange={handleChange}
             />
@@ -265,8 +272,9 @@ const handleClose = () => {
           <textarea
             id="message"
             name="message"
-            className={`w-full p-3 border rounded-lg ${errors.message ? "border-red-500" : "border-gray-300"
-              }`}
+            className={`w-full p-3 border rounded-lg ${
+              errors.message ? "border-red-500" : "border-gray-300"
+            }`}
             value={formData.message}
             onChange={handleChange}
           />
@@ -288,15 +296,29 @@ const handleClose = () => {
         )} */}
       </form>
       {submitted && (
-          <div className="fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-50">
-              <div className="flex flex-col justify-center bg-none p-6 rounded w-[320px] rounded-[20px]">
-                  <div className="mx-auto"><DotLoader /></div>
-                  <p className="text-2xl mt-4 text-white">Please wait...</p>
-              </div>
+        <div className="fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-50">
+          <div className="flex flex-col justify-center bg-none p-6 rounded w-[320px] rounded-[20px]">
+            <div className="mx-auto">
+              <DotLoader />
+            </div>
+            <p className="text-2xl mt-4 text-white">Please wait...</p>
+          </div>
         </div>
       )}
-      {showPopupError && <Popup title="Error" message={errorMessage || 'An error occurred'} onClose={handleClose} />}
-      {showPopupSuccess && <Popup title="Success" message={'Subscribed Successfully.'} onClose={handleClose} />}
+      {showPopupError && (
+        <Popup
+          title="Error"
+          message={errorMessage || "An error occurred"}
+          onClose={handleClose}
+        />
+      )}
+      {showPopupSuccess && (
+        <Popup
+          title="Success"
+          message={"Subscribed Successfully."}
+          onClose={handleClose}
+        />
+      )}
     </div>
   );
 };

@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { RowData } from './types';
+import React, { useState, useEffect } from "react";
+import { RowData } from "./types";
 import { UploadButton } from "@bytescale/upload-widget-react";
 
 interface ModalProps {
@@ -9,7 +9,7 @@ interface ModalProps {
   initialData?: RowData | null;
 }
 
-const emptyRow = {_id: '', image: '', title: '', body: '', view: 0, like: 0}
+const emptyRow = { _id: "", image: "", title: "", body: "", view: 0, like: 0 };
 
 // -----
 // Configuration:
@@ -17,10 +17,21 @@ const emptyRow = {_id: '', image: '', title: '', body: '', view: 0, like: 0}
 // -----
 const options = {
   apiKey: "public_FW25c9bGB5kBiKV3jGmFxuSkDFyA", // This is your API key.
-  maxFileCount: 1
+  maxFileCount: 1,
+  styles: {
+    breakpoints: {
+      fullScreenHeight: 420,
+      fullScreenWidth: 750,
+    },
+  },
 };
 
-const Modal: React.FC<ModalProps> = ({ isOpen, onClose, onSubmit, initialData }) => {
+const Modal: React.FC<ModalProps> = ({
+  isOpen,
+  onClose,
+  onSubmit,
+  initialData,
+}) => {
   const [formData, setFormData] = useState<RowData>(emptyRow);
 
   useEffect(() => {
@@ -31,14 +42,16 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, onSubmit, initialData })
 
   const [image, setImage] = useState<File | null>(null);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    onSubmit(formData);    
+    onSubmit(formData);
     setFormData(emptyRow);
   };
 
@@ -47,37 +60,51 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, onSubmit, initialData })
       {isOpen && (
         <div className="fixed z-10 inset-0 overflow-y-auto">
           <div className="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
-            <div className="fixed inset-0 transition-opacity" aria-hidden="true">
+            <div
+              className="fixed inset-0 transition-opacity"
+              aria-hidden="true"
+            >
               <div className="absolute inset-0 bg-gray-500 opacity-75"></div>
             </div>
-            <span className="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">
+            <span
+              className="hidden sm:inline-block sm:align-middle sm:h-screen"
+              aria-hidden="true"
+            >
               &#8203;
             </span>
             <div className="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg lg:max-w-3xl sm:w-full">
               <form onSubmit={handleSubmit}>
                 <div className="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
                   <div className="mb-4">
-                    <label htmlFor="image" className="block text-gray-700 text-sm font-bold mb-2">
+                    <label
+                      htmlFor="image"
+                      className="block text-gray-700 text-sm font-bold mb-2"
+                    >
                       Image
                     </label>
                     <div className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
-                      <UploadButton options={options}
-                        onComplete={files => {
-                          if(files.length == 0) return;
-                          setFormData({ ...formData, "image": files[0].fileUrl });
-                        }
-                      }
-                        >
-                        {({onClick}) =>
+                      <UploadButton
+                        options={options}
+                        onComplete={(files) => {
+                          if (files.length == 0) return;
+                          setFormData({ ...formData, image: files[0].fileUrl });
+                        }}
+                      >
+                        {({ onClick }) => (
                           <button onClick={onClick}>
-                            {formData.image ? formData.image : "Upload a file..."}
+                            {formData.image
+                              ? formData.image
+                              : "Upload a file..."}
                           </button>
-                        }
+                        )}
                       </UploadButton>
                     </div>
                   </div>
                   <div className="mb-4">
-                    <label htmlFor="title" className="block text-gray-700 text-sm font-bold mb-2">
+                    <label
+                      htmlFor="title"
+                      className="block text-gray-700 text-sm font-bold mb-2"
+                    >
                       Title
                     </label>
                     <input
@@ -91,7 +118,10 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, onSubmit, initialData })
                     />
                   </div>
                   <div className="mb-4">
-                    <label htmlFor="body" className="block text-gray-700 text-sm font-bold mb-2">
+                    <label
+                      htmlFor="body"
+                      className="block text-gray-700 text-sm font-bold mb-2"
+                    >
                       Body
                     </label>
                     <textarea
@@ -113,7 +143,10 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, onSubmit, initialData })
                     Save
                   </button>
                   <button
-                    onClick={ ()=>{onClose(); setFormData(emptyRow);} }
+                    onClick={() => {
+                      onClose();
+                      setFormData(emptyRow);
+                    }}
                     type="button"
                     className="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"
                   >

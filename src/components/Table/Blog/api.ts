@@ -1,7 +1,7 @@
 import { RowData } from './types';
 import axios from 'axios';
 
-const API_URL = 'https://africoin-server.vercel.app/api/blog'; // Replace with your actual API URL
+const API_URL = 'http://localhost/api/blog'; // Replace with your actual API URL
 
 export const fetchData = async (): Promise<RowData[]> => {
   try {

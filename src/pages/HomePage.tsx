@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import WithAfricoin from "../assests/with Africoin.png";
 import BlueLinkButton from "../components/Buttons/BlueLinkButton";
 import GreenWorld from "../assests/GreenWorld.png";

@@ -3,7 +3,7 @@ import "./App.css";
 import "@fontsource/poppins"; // Defaults to weight 400
 import "@fontsource/poppins/400.css"; // Specify weight
 import "@fontsource/poppins/400-italic.css"; // Specify weight and style
-import { Navigate, Route, Router, Routes, useNavigate } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import { useSelector } from "react-redux";
 import HomePage from "./pages/HomePage";
 import BlogPage from "./pages/BlogPage";
@@ -24,7 +24,6 @@ import AdminBlogPage from "./pages/AdminBlogsPage";
 import AdminUsersPage from "./pages/AdminUsersPage";
 import Logout from "./pages/Logout";
 import BlogViewPage from "./pages/BlogViewPage";
-import { useEffect, useState } from "react";
 import AdminContactsPage from "./pages/AdminContactsPage";
 
 if (localStorage.token) {
@@ -72,7 +71,7 @@ function App() {
               <Route path="*" element={<Navigate to="/" />} />
             </>
           )}
-        </Routes>  
+        </Routes>
       </main>
       <Footer />
     </div>
