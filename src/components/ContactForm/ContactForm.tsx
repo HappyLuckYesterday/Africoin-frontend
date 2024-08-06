@@ -88,7 +88,7 @@ const ContactForm: React.FC = () => {
       setSubmitted(true);
       const { _id, ...newformData } = formData;
       axios
-        .post("http://localhost/api/contact", newformData)
+        .post("https://africoin-web.vercel.app/api/contact", newformData)
         .then((res) => {
           console.log(res.data);
           setShowPopupSuccess(true);

@@ -65,7 +65,9 @@ const HomePage: React.FC = () => {
         <div className="flex justify-around flex-wrap mt-10">
           <div className="h-[550px] lg:h-[600px] min-w-[300px] max-w-[400px] bg-white rounded-[50px] p-10 mb-5 sm:mx-1 flex flex-col justify-between sm:justify-start items-center">
             <img src={Pic1} alt="pic 1" className="mx-auto my-5" />
-            <p className="text-[36px] lg:text-[45px] font-poppins mt-10">0 gas emission</p>
+            <p className="text-[36px] lg:text-[45px] font-poppins mt-10">
+              0 gas emission
+            </p>
             <p className="text-[20px] lg:text-[25px] font-poppins mt-10">
               We propose a low energy consuming Blockchain fully supported
               by zero carbon miners
@@ -73,7 +75,9 @@ const HomePage: React.FC = () => {
           </div>
           <div className="h-[550px] lg:h-[600px] min-w-[300px] max-w-[400px] bg-white rounded-[50px] p-10 mb-5 mx-1 flex flex-col justify-between sm:justify-start items-center">
             <img src={Pic2} alt="pic 1" className="mx-auto my-5" />
-            <p className="text-[36px] lg:text-[45px] font-poppins mt-10">Sustainability</p>
+            <p className="text-[36px] lg:text-[45px] font-poppins mt-10">
+              Sustainability
+            </p>
             <p className="text-[20px] lg:text-[25px] font-poppins mt-10">
               The main purpose for Greenercoin is to become the currency that is
               usable for the sustainable market
@@ -144,7 +148,7 @@ const HomePage: React.FC = () => {
           </div>
         </div>
       </div>
-      <div className="relative lg:mt-10 lg:mt-20 flex justify-around flex-wrap">
+      <div className="relative lg:mt-10 flex justify-around flex-wrap">
         <div className="relative p-10 flex flex-col justify-between items-left">
           <p className="text-left text-[45px] md:text-[64px] xl:text-[72px] font-poppins">
             Roadmap

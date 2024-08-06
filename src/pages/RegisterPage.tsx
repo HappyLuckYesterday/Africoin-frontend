@@ -83,7 +83,7 @@ const RegisterPage = () => {
       console.log("Form data:", formData);
       setSubmitted(true);
       axios
-        .post("http://localhost/api/user/register", formData)
+        .post("https://africoin-web.vercel.app/api/user/register", formData)
         .then((res) => {
           console.log(res);
           // localStorage.setItem("cur_email", formData.email);
@@ -251,7 +251,7 @@ const RegisterPage = () => {
       </form>
       {submitted && (
         <div className="fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-50">
-          <div className="flex flex-col justify-center bg-none p-6 rounded w-[320px] rounded-[20px]">
+          <div className="flex flex-col justify-center bg-none p-6 w-[320px] rounded-[20px]">
             <div className="mx-auto">
               <DotLoader />
             </div>
