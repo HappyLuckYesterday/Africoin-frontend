@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import MiniTag from "../Buttons/MiniTag.";
 
 interface BlogCardProps {
   _id: string;
@@ -37,6 +38,9 @@ const BlogCard: React.FC<BlogCardProps> = ({
       ></div> */}
       {/* <ArrowUpRightIcon className="absolute right-7 top-7 text-white w-9 h-9" /> */}
       <div className="absolute bottom-0 left-0 p-5 bg-[#ffffff] w-full h-[50%] rounded-br-[30px] rounded-bl-[30px]">
+        <div className="items-left pb-5">
+          <MiniTag text={"Crypto"} />
+        </div>
         <p className="text-[24px] font-poppins text-black text-left mb-[50px] leading-none">
           {title}
         </p>

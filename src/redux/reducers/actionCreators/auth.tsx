@@ -9,7 +9,7 @@ axios.defaults.headers.post["Content-Type"] =
 export const loginUser = (userData: any, dispatch: any, navigate: any) => {
   console.log(userData);
   axios
-    .post("http://localhost/api/user/login", userData)
+    .post("http://localhost:5000/api/user/login", userData)
     .then((res) => {
       localStorage.setItem("token", res.data.token);
       const user = jwtDecode(res.data.token);

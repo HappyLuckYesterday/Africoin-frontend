@@ -1,6 +1,6 @@
 import { RowData } from './types';
 
-const API_URL = 'http://localhost/api'; // Replace with your actual API URL
+const API_URL = 'http://localhost:5000/api'; // Replace with your actual API URL
 
 export const fetchData = async (): Promise<RowData[]> => {
 //   return [{

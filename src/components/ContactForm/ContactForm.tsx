@@ -297,7 +297,7 @@ const ContactForm: React.FC = () => {
       </form>
       {submitted && (
         <div className="fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-50">
-          <div className="flex flex-col justify-center bg-none p-6 rounded w-[320px] rounded-[20px]">
+          <div className="flex flex-col justify-center bg-none p-6 w-[320px] rounded-[20px]">
             <div className="mx-auto">
               <DotLoader />
             </div>
